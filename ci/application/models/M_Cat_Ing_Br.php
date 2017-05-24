@@ -16,13 +16,13 @@ class M_Cat_Ing_Br extends CI_Model {
 			{
 				if($esProvincia === true)
 				{
-					$query = $this->db->select("*")->from("Cat_Ing_Br_Prov_Pcia")->where("Id",$id)->get();
+					$query = $this->db->select("*")->from("cat_ing_br_prov_pcia")->where("Id",$id)->get();
 					if($query->num_rows() === 1)
 						$result = $query->row_array();
 				}
 				else
 				{
-					$query = $this->db->select("*")->from("Cat_Ing_Br_Prov")->where("Id",$id)->get();
+					$query = $this->db->select("*")->from("cat_ing_br_prov")->where("Id",$id)->get();
 					if($query->num_rows() === 1)
 						$result = $query->row_array();	
 				}
@@ -34,13 +34,13 @@ class M_Cat_Ing_Br extends CI_Model {
 			{
 				if($esProvincia)
 				{
-					$query = $this->db->select("*")->from("Cat_Ing_Br_Prov_Pcia")->get();
+					$query = $this->db->select("*")->from("cat_ing_br_prov_pcia")->get();
 					if($query->num_rows() >= 1)
 						$result = $query->result_array();
 				}
 				else
 				{
-					$query = $this->db->select("*")->from("Cat_Ing_Br_Prov")->get();
+					$query = $this->db->select("*")->from("cat_ing_br_prov")->get();
 					if($query->num_rows() >= 1)
 						$result = $query->result_array();	
 				}
