@@ -1,0 +1,41 @@
+<div class="container">
+	<div class="row">
+		<form class="form-horizontal">
+<fieldset>
+
+<!-- Form Name -->
+
+<legend>{{$parent.settings.pageTitle}}</legend>
+<!-- Text input-->
+<p ng-show="$parent.settings.success" class="alert alert-success">{{$parent.settings.success}}</p>
+<div class="form-group">
+  <label class="col-md-4 control-label" for="razon_social">Razon Social</label>  
+  <div class="col-md-4">
+  <input id="razon_social" name="Razon_Social" placeholder="Razon Social" class="form-control input-md" required="" type="text" ng-model="prov.razon_social">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="Cuit">Cuit</label>  
+  <div class="col-md-5">
+  <input id="Cuit" name="Cuit" placeholder="Cuit" class="form-control input-md" required="" type="text" ng-model="prov.cuit">
+    
+  </div>
+</div>
+
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="submit"></label>
+  <div class="col-md-4">
+    <button id="submit" name="Enviar" class="btn btn-default" ng-click="submit($parent.prov)">{{$parent.settings.action}}</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+	</div>
+</div>

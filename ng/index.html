@@ -1,19 +1,277 @@
-<!DOCTYPE html>
-<html ng-app="app">
+<!doctype html>
+<html>
 <head>
-	<title></title>
-	<meta charset="utf-8">
-	<script src="./bower_components/angular/angular.js"></script>
-	<script src="./bower_components/angular-route/angular-route.js"></script>
-	<script src="./scripts/app.js"></script>
-	<script src="./bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<title>AngularJS CRUD Operations with PHP and MySQL by CodexWorld</title>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/prueba.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src = "js/custom.min.js"></script>
+<script src = "js/icheck.min.js"></script>
+<script type="text/javascript" src="bower_components/angular-ui-mask/dist/mask.js"></script>
+<script src = "app.js"></script>
+
 </head>
-<body>
-	<div class="container">
-		<div ng-view>
-			
-		</div>
-	</div>
+<body ng-app="crudApp">
+
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" id="modalConfirma">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <p class="text-center">Esta seguro?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+        <button type="button" class="btn btn-primary" id="acceptD">Si</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" ng-controller="provController" ng-init="getRecords()">
+    <div class="row">
+    	<div class="container">
+        <div class="panel panel-default users-content">
+            <div class="panel-heading">Proveedores <a href="" class="glyphicon glyphicon-plus"  ng-click="slideToggle()"></a>
+            <!--
+            <div class="clearfix"></div>
+            <pre>Agente retencion y Change de provincia para categoria de ing br</pre>
+            <pre>Validacion del formulario</pre>
+            <pre>Responsive</pre>
+            <pre>Checkbox seleccionar para imprimir, exportar</pre>
+            -->
+            </div>
+            <div class="alert alert-danger none"><p></p></div>
+            <div class="alert alert-success none"><p></p></div>
+            <div class="panel-body none formData">
+                <form class="form" name="provForm" class="form-horizontal form-label-left" novalidate>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3 falso-xs-12" for="RazSocial" ng-model-options="{ updateOn: 'blur' }">Razon Social
+                            </label>
+                            <div class="col-md-9 col-sm-9 col-xs-9 falso-xs-12">
+                                <input id="RazSocial" class="form-control col-md-7 col-xs-12"  name="Razon_Social" ng-model="tempProvData.Razon_Social" required type="text"><br>
+                                    <span ng-show="(provForm.$submitted || provForm.Razon_Social.$touched) && provForm.Razon_Social.$error.required">Razon Social es obligatorio</span>
+                            </div>
+                        </div>
+                        <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3 falso-xs-12" for="CodProv">Codigo</label>
+                            <div class="col-md-9 col-sm-9 col-xs-9 falso-xs-12">
+                                <input type="text" id="CodProv" name="Codigo_Prov" disabled="disabled" ng-model="tempProvData.Id" class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+                        <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3 falso-xs-12" for="cuit">Cuit</label>
+                            <div class="col-md-9 col-sm-9 col-xs-9 falso-xs-12">
+                                <input id="cuit" type="text" class="form-control" required name="Cuit" ng-model="tempProvData.Cuit" ui-mask="99-99999999-9" ui-mask-placeholder ui-mask-placeholder-char="_" ng-model-options="{ updateOn: 'blur' }">
+                                <span ng-show="(provForm.$submitted || provForm.Cuit.$touched) && provForm.Cuit.$error.required">Ingrese un cuit correcto</span>
+                            </div>
+                        </div>
+
+                        <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3 falso-xs-12" for="ing_brutos">Nro Ing Brutos</label>
+                            <div class="col-md-9 col-sm-9 col-xs-9 falso-xs-12">
+                                <input id="ing_brutos" type="text" class="form-control" name="Nro_Ing_Br" ng-model="tempProvData.Nro_Ing_Brutos">
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3 falso-xs-12" for="iva">IVA</label>
+                            <div class="col-md-9 col-sm-9 col-xs-9 falso-xs-12">
+                               <select class="form-control" id="iva" name="Iva" ng-init="getIvas()" ng-model="tempProvData.Id_Iva">
+                                    <option ng-repeat="iva in ivas" value="{{iva.Id}}">{{iva.Descripcion}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3 falso-xs-12" for="website">Pagina Web
+                            </label>
+                            <div class="col-md-9 col-sm-9 col-xs-9 falso-xs-12">
+                                <input type="text" id="website" name="PagWeb" placeholder="www.web.com" class="form-control col-md-7 col-xs-12" ng-model="tempProvData.Pagina_Web">
+                            </div>
+                        </div>
+                        
+                        <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3 falso-xs-12" for="email">Email
+                            </label>
+                            <div class="col-md-9 col-sm-9 col-xs-9 falso-xs-12">
+                                <input type="email" id="email" name="Email" class="form-control col-md-7 col-xs-12" ng-model="tempProvData.Email" required ng-model-options="{ updateOn: 'blur' }"><br>
+                                <div ng-show="provForm.$submitted || provForm.Email.$touched">
+                                    <span ng-show="provForm.Email.$error.required">Ingrese un mail</span><br>    
+                                    <span ng-show="provForm.Email.$error.email">El formato no es correcto</span>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        
+                        <div class="item form-group">
+                            <div class="checkbox">
+                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                <label class="control-label col-md-9 col-sm-9 col-xs-12 falso-xs-12" for="Ag_Retencion">
+                                    <input type="checkbox" name="Ag_Retencion" id="Ag_Retencion" ng-model="tempProvData.Agente_Retencion"> <span class="agente_r">Agente de retencion</span>
+                                </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3 falso-xs-12" for="condi_pago">Condicion de pago</label>
+                            <div class="col-md-9 col-sm-9 col-xs-9 falso-xs-12">
+                                <select class="select2_single form-control" tabindex="-1" id="condi_pago" name="condi_pago" ng-model="tempProvData.Id_Condicion_Pago">
+                                    <option ng-repeat="condi in condiciones" value="condi.Id">{{condi.Descripcion}}</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-3 falso-xs-12" for="rubro_prov">Rubro</label>
+                            <div class="col-md-9 col-sm-9 col-xs-9 falso-xs-12">
+                                <select class="form-control" id="rubro_prov" name="rubro_prov" ng-init="getRubros()" ng-model="tempProvData.Id_Rubro">
+                                    <option ng-repeat="rubro in rubros" value="{{rubro.Id}}">{{rubro.Descripcion}}</option>
+                                </select>
+                            </div>                                
+                        </div>
+
+                        
+                        
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        
+                        <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3 falso-xs-12" for="telefono">Telefono</label>
+                            <div class="col-md-9 col-sm-9 col-xs-9 falso-xs-12">
+                                <input type="tel" id="telefono" name="Telefono" class="form-control col-md-7 col-xs-12" ng-model="tempProvData.Telefono">
+                            </div>
+                        </div>
+                        <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3 falso-xs-12" for="celular">Celular</label>
+                            <div class="col-md-9 col-sm-9 col-xs-9 falso-xs-12">
+                                <input type="tel" id="celular" name="Celular" class="form-control col-md-7 col-xs-12" ng-model="tempProvData.Celular">
+                            </div>
+                        </div>
+                        <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3 falso-xs-12" for="fax">Fax</label>
+                            <div class="col-md-9 col-sm-9 col-xs-9 falso-xs-12">
+                                <input type="tel" id="fax" name="Fax"  class="form-control col-md-7 col-xs-12" ng-model="tempProvData.Fax">
+                            </div>
+                        </div>
+                        <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3 falso-xs-12" for="domicilio">Domicilio</label>
+                            <div class="col-md-9 col-sm-9 col-xs-9 falso-xs-12">
+                                <input id="domicilio" class="form-control col-md-7 col-xs-12" type="text" name="Domicilio" ng-model="tempProvData.Domicilio">
+                            </div>
+                        </div>
+                        <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3 falso-xs-12" for="provincia">Provincia</label>
+                            <div class="col-md-9 col-sm-9 col-xs-9 falso-xs-12">
+                                <select class="select2_single form-control" id="provincia" name="provincia" ng-model="tempProvData.Id_Provincia" ng-init="getProvincias()" ng-change="checkearProvi()">
+                                    <option ng-repeat="provincia in provincias" value="{{provincia.Id}}">{{provincia.Descripcion}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3 falso-xs-12" for="domicilio">Localidad</label>
+                            <div class="col-md-9 col-sm-9 col-xs-9 falso-xs-12">
+                                <input id="localidad" class="form-control col-md-7 col-xs-12" type="text" name="Localidad" ng-model="tempProvData.Localidad">
+                            </div>
+                        </div>
+                        <div class="form-group"  ng-init="getBarrios()">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3 falso-xs-12" for="barrio">Barrio</label>
+                            <div class="col-md-4 col-sm-4 col-xs-9 falso-xs-12">
+                                <select class="select2_single form-control" tabindex="-1" id="barrio" name="barrio" ng-model="tempProvData.Barrio">
+                                    <option ng-repeat="barrio in barrios" value="{{barrio.Descripcion}}">{{barrio.Descripcion}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="item form-group">
+                            <label class="control-label col-md-2 col-sm-2 col-xs-3 falso-xs-12" for="CodPostal">Codigo Postal:</label>
+                            <div class="col-md-3 col-sm-3 col-xs-9 falso-xs-12">
+                                <input id="CodPostal" class="form-control col-md-7 col-xs-12" name="CodPostal" type="text" ng-model="tempProvData.Codigo_Postal">
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                         <div class="item form-group" ng-init="getCatIngBr()">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3 falso-xs-12" for="cat_ing_br">Categoria de Ing Brutos</label>
+                            <div class="col-md-9 col-sm-9 col-xs-9 falso-xs-12">
+                                <select class="form-control" id="cat_ing_br" name="cat_ing_Br" ng-model="tempProvData.Id_Cat_Ing_Br" disabled="disabled">
+                                    <option ng-repeat="cat in catIngBr" value="{{cat.Id}}">{{cat.Descripcion}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="item form-group" ng-init="getCatGanancias()">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3 falso-xs-12" for="cat_ing_br">Categoria de Ganancias</label>
+                            <div class="col-md-9 col-sm-9 col-xs-9 falso-xs-12">
+                                <select class="form-control select2_single" id="cat_ganancias" name="cat_ganancias" ng-model="tempProvData.Id_Cat_Ganancia">
+                                    <option ng-repeat="ganancia in catGanancias" value="{{ganancia.Id}}">{{ganancia.Descripcion}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="item form-group">
+                            <label for="Obss" class="control-label col-md-3 col-sm-3 col-xs-12">Observaciones</label> 
+                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                <textarea id="Obss" required="required" class="form-control" name="Obs" ng-model="tempProvData.Observaciones"></textarea>
+                            </div>   
+                        </div>
+
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+
+                        <div class="ln_solid"></div>
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-3">
+                                <button  type="reset" class="btn btn-primary" ng-click="resetForm(provForm)">Cancelar</button>
+                                <button  type="submit" class="btn btn-success" ng-hide="tempProvData.Id" ng-click="addProv(provForm)">Agregar proveedor</button>
+                                <button  type="submit" class="btn btn-success" ng-hide="!tempProvData.Id" ng-click="updateProv(provForm)">Actualizar proveedor</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </form>
+            </div>
+           
+            <div class="panel">
+                <div class="panel-body">
+                    <table id="datatable-checkbox" class="table table-striped  bulk_action  dt-responsive nowrap" cellspacing="0" width="100%">
+                        <thead>
+                        <tr>
+                            <th><input type="checkbox" id="check-all" class="flat"></th>
+                            <th>#</th>
+                            <th>Razon Social</th>
+                            <th>Cuit</th>
+                            <th>Email</th>
+                            <th>Domicilio</th>
+                            <th>Codigo Postal</th>
+                            <th>Localidad</th>
+                            <th>Telefono</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tr ng-repeat="prov in provs | orderBy: 'Razon_Social'">
+                            <td><input type="checkbox" class="flat"></td>
+                            <td>{{prov.Id}}</td>
+                            <td>{{prov.Razon_Social}}</td>
+                            <td>{{prov.Cuit}}</td>
+                            <td>{{prov.Email}}</td>
+                            <td>{{prov.Domicilio}}</td>
+                            <td>{{prov.Codigo_Postal}}</td>
+                            <td>{{prov.Localidad}}</td>
+                            <td>{{prov.Telefono}}</td>
+                            <td>
+                                <a href="" class="glyphicon glyphicon-edit" ng-click="editProv(prov)"></a>
+                                <a href="" class="glyphicon glyphicon-trash" ng-click="deleteProv(prov)"></a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>

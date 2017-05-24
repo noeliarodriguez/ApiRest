@@ -12,46 +12,62 @@ class Proveedor extends REST_Controller {
 	{
 		$prov = $this->Prov->get($id);
 		if(!is_null($prov))
-			$this->response(array("response" => $prov),200);
-		else
-			$this->response(array("response" => "no hay datos"),404);	
+			$this->response(array("resp" => $prov),200);
 	}
 
-	public function index_post($id)
+	public function index_post()
 	{
-
-		if(!$this->post('proveedor'))
-			$this->response(NULL,400);
-
-		$provId = $this->Prov->save($this->post('proveedor'));
-		if(!is_null($provId))
-			$this->response(array("response" => $provId,200));
+		$type = $this->post('type');
+		//AGREGAR
+		if( $type == "add")
+		{
+			$prov = $this->post('proveedor');
+			$provId = $this->Prov->save($prov);
+			if(!is_null($provId))
+				{
+					$prov["Id"] = $provId;
+					$this->response(array("resp" => "Nuevo proveedor codigo: ".$provId,"prov" => $prov,"status" => "OK"));
+				}
+			else
+				$this->response(array("resp" => "Ha ocurrido un error",400));	
+			
+		}
+		//EDITAR
 		else
-			$this->response(array("response" => "Ha ocurrido un error",400));
+			if($type == "edit")
+			{
+				$prov = $this->post('proveedor');
+				$id = $this->post('proveedor')['Id'];
+				if(!$prov || !$id)
+				$this->response(NULL,400);
+
+				$update = $this->Prov->update($id,$prov);
+				if(!is_null($update))
+					$this->response(array("resp" => "Proveedor actualizado","status" => "OK"));
+				else
+					$this->response(array("resp" => "No se ha actualizado nada",400));
+			}
+			//BORRAR
+			else
+				if($type == "delete")
+				{
+					$id = $this->post('Id');
+					if(!$id)
+					$this->response(NULL,400);
+
+					$delete = $this->Prov->delete($id);
+					if(!is_null($delete))
+						$this->response(array("resp" => "Proveedor eliminado","status" => "OK"));
+					else
+						$this->response(array("resp" => "Ha ocurrido un error",400));
+				}
+				else
+					echo "ERROR";
+		
 	}
-	public function index_put($id)
-	{
-		if(!$this->put('proveedor') || !$id)
-			$this->response(NULL,400);
 
-		$update = $this->Prov->update($id,$this->put('proveedor'));
-		if(!is_null($update))
-			$this->response(array("response" => "Proveedor actualizado",200));
-		else
-			$this->response(array("response" => "Ha ocurrido un error",400));
-	}
+	
 
-	public function index_delete($id)
-	{
-		if(!$id)
-			$this->response(NULL,400);
 
-		$delete = $this->Prov->delete($id);
-		if(!is_null($delete))
-			$this->response(array("response" => "Proveedor eliminado",200));
-		else
-			$this->response(array("response" => "Ha ocurrido un error",400));
-
-	}
 }
 ?>
