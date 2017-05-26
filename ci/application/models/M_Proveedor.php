@@ -56,10 +56,6 @@ class M_Proveedor extends CI_Model {
 				return NULL;
 		    */
 		    $this->db->set('Estado','BAJ')->where("Id",$id)->update("proveedor");
-            if($this->db->affected_rows() == 1)
-                return TRUE;
-            else
-                return NULL;
 
 		}
 		else

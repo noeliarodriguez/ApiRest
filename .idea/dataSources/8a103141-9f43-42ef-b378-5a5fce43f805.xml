@@ -469,283 +469,288 @@
       <DataType>varchar(50)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="119" parent="18" name="Rubro_Proveedor_Descripcion_uindex">
+    <column id="119" parent="18" name="Id_Estado">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <index id="120" parent="18" name="Rubro_Proveedor_Descripcion_uindex">
       <ColNames>Descripcion</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="120" parent="18" name="Rubro_Proveedor_Id_uindex">
+    <index id="121" parent="18" name="Rubro_Proveedor_Id_uindex">
       <ColNames>Id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="121" parent="18" name="PRIMARY">
+    <key id="122" parent="18" name="PRIMARY">
       <ColNames>Id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="122" parent="18" name="Rubro_Proveedor_Id_uindex">
+    <key id="123" parent="18" name="Rubro_Proveedor_Id_uindex">
       <ColNames>Id</ColNames>
       <UnderlyingIndexName>Rubro_Proveedor_Id_uindex</UnderlyingIndexName>
     </key>
-    <key id="123" parent="18" name="Rubro_Proveedor_Descripcion_uindex">
+    <key id="124" parent="18" name="Rubro_Proveedor_Descripcion_uindex">
       <ColNames>Descripcion</ColNames>
       <UnderlyingIndexName>Rubro_Proveedor_Descripcion_uindex</UnderlyingIndexName>
     </key>
-    <column id="124" parent="19" name="Id">
+    <column id="125" parent="19" name="Id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="125" parent="19" name="Codigo_Iva">
+    <column id="126" parent="19" name="Codigo_Iva">
       <Position>2</Position>
       <DataType>char(2)|0</DataType>
     </column>
-    <column id="126" parent="19" name="Descripcion">
+    <column id="127" parent="19" name="Descripcion">
       <Position>3</Position>
       <DataType>varchar(30)|0</DataType>
     </column>
-    <column id="127" parent="19" name="Porcentaje1">
+    <column id="128" parent="19" name="Porcentaje1">
       <Position>4</Position>
       <DataType>decimal(12,3)|0</DataType>
     </column>
-    <column id="128" parent="19" name="Porcentaje2">
+    <column id="129" parent="19" name="Porcentaje2">
       <Position>5</Position>
       <DataType>decimal(12,3)|0</DataType>
     </column>
-    <index id="129" parent="19" name="Tipo_Iva_Codigo_Iva_uindex">
+    <index id="130" parent="19" name="Tipo_Iva_Codigo_Iva_uindex">
       <ColNames>Codigo_Iva</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="130" parent="19" name="Tipo_Iva_Descripcion_uindex">
+    <index id="131" parent="19" name="Tipo_Iva_Descripcion_uindex">
       <ColNames>Descripcion</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="131" parent="19" name="Tipo_Iva_Id_uindex">
+    <index id="132" parent="19" name="Tipo_Iva_Id_uindex">
       <ColNames>Id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="132" parent="19" name="PRIMARY">
+    <key id="133" parent="19" name="PRIMARY">
       <ColNames>Id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="133" parent="19" name="Tipo_Iva_Id_uindex">
+    <key id="134" parent="19" name="Tipo_Iva_Id_uindex">
       <ColNames>Id</ColNames>
       <UnderlyingIndexName>Tipo_Iva_Id_uindex</UnderlyingIndexName>
     </key>
-    <key id="134" parent="19" name="Tipo_Iva_Codigo_Iva_uindex">
+    <key id="135" parent="19" name="Tipo_Iva_Codigo_Iva_uindex">
       <ColNames>Codigo_Iva</ColNames>
       <UnderlyingIndexName>Tipo_Iva_Codigo_Iva_uindex</UnderlyingIndexName>
     </key>
-    <key id="135" parent="19" name="Tipo_Iva_Descripcion_uindex">
+    <key id="136" parent="19" name="Tipo_Iva_Descripcion_uindex">
       <ColNames>Descripcion</ColNames>
       <UnderlyingIndexName>Tipo_Iva_Descripcion_uindex</UnderlyingIndexName>
     </key>
-    <column id="136" parent="20" name="Id_Usuario">
+    <column id="137" parent="20" name="Id_Usuario">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="137" parent="20" name="Name_User">
+    <column id="138" parent="20" name="Name_User">
       <Position>2</Position>
       <DataType>varchar(10)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="138" parent="20" name="Pw_User">
+    <column id="139" parent="20" name="Pw_User">
       <Position>3</Position>
       <DataType>varchar(300)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="139" parent="20" name="Nombre">
+    <column id="140" parent="20" name="Nombre">
       <Position>4</Position>
       <DataType>varchar(50)|0</DataType>
     </column>
-    <column id="140" parent="20" name="Apellido">
+    <column id="141" parent="20" name="Apellido">
       <Position>5</Position>
       <DataType>varchar(50)|0</DataType>
     </column>
-    <column id="141" parent="20" name="Email">
+    <column id="142" parent="20" name="Email">
       <Position>6</Position>
       <DataType>varchar(50)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="142" parent="20" name="Fecha_Nacimiento">
+    <column id="143" parent="20" name="Fecha_Nacimiento">
       <Position>7</Position>
       <DataType>date|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="143" parent="20" name="Telefono">
+    <column id="144" parent="20" name="Telefono">
       <Position>8</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="144" parent="20" name="Celular">
+    <column id="145" parent="20" name="Celular">
       <Position>9</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="145" parent="20" name="Fecha_Creacion">
+    <column id="146" parent="20" name="Fecha_Creacion">
       <Position>10</Position>
       <DataType>datetime|0</DataType>
     </column>
-    <column id="146" parent="20" name="Fecha_Logueo">
+    <column id="147" parent="20" name="Fecha_Logueo">
       <Position>11</Position>
       <DataType>datetime|0</DataType>
     </column>
-    <column id="147" parent="20" name="Esta_Logueado">
+    <column id="148" parent="20" name="Esta_Logueado">
       <Position>12</Position>
       <DataType>tinyint(1)|0</DataType>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
     </column>
-    <column id="148" parent="20" name="Id_Rol">
+    <column id="149" parent="20" name="Id_Rol">
       <Position>13</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;2&apos;</DefaultExpression>
     </column>
-    <column id="149" parent="20" name="Id_Estado">
+    <column id="150" parent="20" name="Id_Estado">
       <Position>14</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;1&apos;</DefaultExpression>
     </column>
-    <index id="150" parent="20" name="Usuario_Email_uindex">
+    <index id="151" parent="20" name="Usuario_Email_uindex">
       <ColNames>Email</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="151" parent="20" name="Usuario_Id_Usuario_uindex">
+    <index id="152" parent="20" name="Usuario_Id_Usuario_uindex">
       <ColNames>Id_Usuario</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="152" parent="20" name="Usuario_Name_User_uindex">
+    <index id="153" parent="20" name="Usuario_Name_User_uindex">
       <ColNames>Name_User</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="153" parent="20" name="PRIMARY">
+    <key id="154" parent="20" name="PRIMARY">
       <ColNames>Id_Usuario</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="154" parent="20" name="Usuario_Id_Usuario_uindex">
+    <key id="155" parent="20" name="Usuario_Id_Usuario_uindex">
       <ColNames>Id_Usuario</ColNames>
       <UnderlyingIndexName>Usuario_Id_Usuario_uindex</UnderlyingIndexName>
     </key>
-    <key id="155" parent="20" name="Usuario_Name_User_uindex">
+    <key id="156" parent="20" name="Usuario_Name_User_uindex">
       <ColNames>Name_User</ColNames>
       <UnderlyingIndexName>Usuario_Name_User_uindex</UnderlyingIndexName>
     </key>
-    <key id="156" parent="20" name="Usuario_Email_uindex">
+    <key id="157" parent="20" name="Usuario_Email_uindex">
       <ColNames>Email</ColNames>
       <UnderlyingIndexName>Usuario_Email_uindex</UnderlyingIndexName>
     </key>
-    <argument id="157" parent="21" name="_Name_User">
+    <argument id="158" parent="21" name="_Name_User">
       <DataType>varchar(10)|0</DataType>
     </argument>
-    <argument id="158" parent="21" name="_Pw_User">
+    <argument id="159" parent="21" name="_Pw_User">
       <DataType>varchar(300)|0</DataType>
     </argument>
-    <argument id="159" parent="21" name="_Nombre">
+    <argument id="160" parent="21" name="_Nombre">
       <DataType>varchar(50)|0</DataType>
     </argument>
-    <argument id="160" parent="21" name="_Apellido">
+    <argument id="161" parent="21" name="_Apellido">
       <DataType>varchar(50)|0</DataType>
     </argument>
-    <argument id="161" parent="21" name="_Email">
+    <argument id="162" parent="21" name="_Email">
       <DataType>varchar(50)|0</DataType>
     </argument>
-    <argument id="162" parent="21" name="_Fecha_Nacimiento">
+    <argument id="163" parent="21" name="_Fecha_Nacimiento">
       <DataType>date|0</DataType>
     </argument>
-    <argument id="163" parent="21" name="_Telefono">
+    <argument id="164" parent="21" name="_Telefono">
       <DataType>int(11)|0</DataType>
     </argument>
-    <argument id="164" parent="21" name="_Celular">
+    <argument id="165" parent="21" name="_Celular">
       <DataType>int(11)|0</DataType>
     </argument>
-    <argument id="165" parent="21" name="_Fecha_Creacion">
+    <argument id="166" parent="21" name="_Fecha_Creacion">
       <DataType>datetime|0</DataType>
     </argument>
-    <argument id="166" parent="21" name="_Fecha_Logueo">
+    <argument id="167" parent="21" name="_Fecha_Logueo">
       <DataType>datetime|0</DataType>
     </argument>
-    <argument id="167" parent="21" name="_Esta_Logueado">
+    <argument id="168" parent="21" name="_Esta_Logueado">
       <DataType>tinyint(1)|0</DataType>
     </argument>
-    <argument id="168" parent="21" name="_Id_Rol">
+    <argument id="169" parent="21" name="_Id_Rol">
       <DataType>int(11)|0</DataType>
     </argument>
-    <argument id="169" parent="21" name="_Id_Estado">
+    <argument id="170" parent="21" name="_Id_Estado">
       <DataType>int(11)|0</DataType>
     </argument>
-    <argument id="170" parent="23" name="_Codigo">
+    <argument id="171" parent="23" name="_Codigo">
       <DataType>int(11)|0</DataType>
     </argument>
-    <argument id="171" parent="24" name="_Razon_Social">
+    <argument id="172" parent="24" name="_Razon_Social">
       <DataType>varchar(60)|0</DataType>
     </argument>
-    <argument id="172" parent="24" name="_Cuit">
+    <argument id="173" parent="24" name="_Cuit">
       <DataType>bigint(20)|0</DataType>
     </argument>
-    <argument id="173" parent="24" name="_Nro_Ing_Brutos">
+    <argument id="174" parent="24" name="_Nro_Ing_Brutos">
       <DataType>bigint(20)|0</DataType>
     </argument>
-    <argument id="174" parent="24" name="_Id_Iva">
+    <argument id="175" parent="24" name="_Id_Iva">
       <DataType>int(11)|0</DataType>
     </argument>
-    <argument id="175" parent="24" name="_Id_Cat_Ing_Br">
+    <argument id="176" parent="24" name="_Id_Cat_Ing_Br">
       <DataType>int(11)|0</DataType>
     </argument>
-    <argument id="176" parent="24" name="_Id_Reg_Ganancia">
+    <argument id="177" parent="24" name="_Id_Reg_Ganancia">
       <DataType>int(11)|0</DataType>
     </argument>
-    <argument id="177" parent="24" name="_Id_Rubro">
+    <argument id="178" parent="24" name="_Id_Rubro">
       <DataType>int(11)|0</DataType>
     </argument>
-    <argument id="178" parent="24" name="_Agente_Retencion">
+    <argument id="179" parent="24" name="_Agente_Retencion">
       <DataType>tinyint(1)|0</DataType>
     </argument>
-    <argument id="179" parent="24" name="_Id_Pais">
+    <argument id="180" parent="24" name="_Id_Pais">
       <DataType>int(11)|0</DataType>
     </argument>
-    <argument id="180" parent="24" name="_Id_Provincia">
+    <argument id="181" parent="24" name="_Id_Provincia">
       <DataType>int(11)|0</DataType>
     </argument>
-    <argument id="181" parent="24" name="_Codigo_Postal">
+    <argument id="182" parent="24" name="_Codigo_Postal">
       <DataType>varchar(10)|0</DataType>
     </argument>
-    <argument id="182" parent="24" name="_Id_Condicion_Pago">
+    <argument id="183" parent="24" name="_Id_Condicion_Pago">
       <DataType>int(11)|0</DataType>
     </argument>
-    <argument id="183" parent="24" name="_Email">
+    <argument id="184" parent="24" name="_Email">
       <DataType>varchar(100)|0</DataType>
     </argument>
-    <argument id="184" parent="24" name="_Pagina_Web">
+    <argument id="185" parent="24" name="_Pagina_Web">
       <DataType>varchar(100)|0</DataType>
     </argument>
-    <argument id="185" parent="24" name="_Domicilio">
+    <argument id="186" parent="24" name="_Domicilio">
       <DataType>varchar(50)|0</DataType>
     </argument>
-    <argument id="186" parent="24" name="_Telefono">
+    <argument id="187" parent="24" name="_Telefono">
       <DataType>varchar(50)|0</DataType>
     </argument>
-    <argument id="187" parent="24" name="_Celular">
+    <argument id="188" parent="24" name="_Celular">
       <DataType>varchar(30)|0</DataType>
     </argument>
-    <argument id="188" parent="24" name="_Fax">
+    <argument id="189" parent="24" name="_Fax">
       <DataType>varchar(50)|0</DataType>
     </argument>
-    <argument id="189" parent="24" name="_Observaciones">
+    <argument id="190" parent="24" name="_Observaciones">
       <DataType>text|0</DataType>
     </argument>
-    <argument id="190" parent="24" name="_Barrio">
+    <argument id="191" parent="24" name="_Barrio">
       <DataType>varchar(50)|0</DataType>
     </argument>
-    <argument id="191" parent="24" name="_Id_Cat_Ganancia">
+    <argument id="192" parent="24" name="_Id_Cat_Ganancia">
       <DataType>int(11)|0</DataType>
     </argument>
-    <argument id="192" parent="24" name="_Localidad">
+    <argument id="193" parent="24" name="_Localidad">
       <DataType>varchar(100)|0</DataType>
     </argument>
-    <argument id="193" parent="25" name="_Name_User">
+    <argument id="194" parent="25" name="_Name_User">
       <DataType>varchar(10)|0</DataType>
     </argument>
-    <argument id="194" parent="25" name="_Pw_User">
+    <argument id="195" parent="25" name="_Pw_User">
       <DataType>varchar(300)|0</DataType>
     </argument>
   </database-model>

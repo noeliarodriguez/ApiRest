@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-<title>AngularJS CRUD Operations with PHP and MySQL by CodexWorld</title>
+<title>ABM Proveedores</title>
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="css/prueba.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
@@ -36,7 +36,7 @@
             <div class="panel-heading">Proveedores <a href="" class="glyphicon glyphicon-plus"  ng-click="slideToggle()"></a>
             <!--
             <div class="clearfix"></div>
-            <pre>Agente retencion y Change de provincia para categoria de ing br</pre>
+            <pre>Agente retencion</pre>
             <pre>Validacion del formulario</pre>
             <pre>Responsive</pre>
             <pre>Checkbox seleccionar para imprimir, exportar</pre>
@@ -224,7 +224,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-3">
                                 <button  type="reset" class="btn btn-primary" ng-click="resetForm(provForm)">Cancelar</button>
-                                <button  type="submit" class="btn btn-success" ng-hide="tempProvData.Id" ng-click="saveProv(provForm)">Agregar proveedor</button>
+                                <button  type="submit" class="btn btn-success" ng-hide="tempProvData.Id" ng-click="addProv(provForm)">Agregar proveedor</button>
                                 <button  type="submit" class="btn btn-success" ng-hide="!tempProvData.Id" ng-click="updateProv(provForm)">Actualizar proveedor</button>
                             </div>
                         </div>
