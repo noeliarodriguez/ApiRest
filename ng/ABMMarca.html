@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+<head>
+    <title>ABM Marcas</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/prueba.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-ui-mask/dist/mask.js"></script>
+    <script src = "appRubro.js"></script>
+
+</head>
+<body ng-app="crudMarca">
+
+<div class="container" ng-controller="MarcaController" ng-init="getDatos()">
+    <div class="row">
+        <div class="container">
+            <div class="panel panel-default users-content">
+                <div class="panel-heading">Marcas <a href="" class="glyphicon glyphicon-plus"  ng-click="slideToggle()"></a>
+                </div>
+                <div class="alert alert-danger none"><p></p></div>
+                <div class="alert alert-success none"><p></p></div>
+                <div class="panel-body none formData">
+                    <form class="form" name="MarcaForm" class="form-horizontal form-label-left" novalidate>
+                        <div class="col-md-6 col-xs-12">
+
+
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-3 falso-xs-12" for="DescMarca">Nombre
+                                </label>
+                                <div class="col-md-9 col-sm-9 col-xs-9 falso-xs-12">
+                                    <input id="DescMarca" class="form-control col-md-7 col-xs-12"  name="DescMarca" ng-model="tempMarcaData.Nombre" required type="text"><br>
+                                    <span ng-show="(MarcaForm.$submitted || MarcaForm.DescMarca.$touched) && MarcaForm.DescMarca.$error.required">Ingrese nombre de la marca</span>
+                                </div>
+                            </div>
+
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-3 falso-xs-12" for="Codigo_Marca">Codigo</label>
+                                <div class="col-md-9 col-sm-9 col-xs-9 falso-xs-12">
+                                    <input type="text" id="Codigo_Marca" name="Codigo_Marca" disabled="disabled" ng-model="tempMarcaData.Id" class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-3 falso-xs-12" for="Estado">Estado</label>
+                                <div class="col-md-9 col-sm-9 col-xs-9 falso-xs-12">
+                                    <select class="select2_single form-control" tabindex="-1" id="Estado" name="Estado" ng-model="tempMarcaData.Id_Estado">
+                                        <option ng-repeat="estado in estados" value="{{estado.Id_Estado}}">{{estado.Descripcion}}</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="ln_solid"></div>
+                            <div class="form-group">
+                                <div class="col-md-6 col-md-offset-3">
+                                    <button  type="reset" class="btn btn-primary" ng-click="resetForm(MarcaForm)">Cancelar</button>
+                                    <button  type="submit" class="btn btn-success" ng-hide="tempMarcaData.Id" ng-click="addRubro(MarcaForm)">Agregar rubro</button>
+                                    <button  type="submit" class="btn btn-success" ng-hide="!tempMarcaData.Id" ng-click="updateRubro(MarcaForm)">Actualizar rubro</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+
+                <div class="panel" ng-init="getRecords()">
+                    <div class="panel-body">
+                        <table id="datatable-checkbox" class="table table-striped   dt-responsive nowrap" cellspacing="0" width="100%">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Nombre</th>
+                                <th>Estado</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tr ng-repeat="marca in marcas | orderBy: 'Nombre'">
+                                <td>{{marca.Id}}</td>
+                                <td>{{marca.Nombre}}</td>
+                                <td>{{marca.Estado}}</td>
+                                <td>
+                                    <a href="" class="glyphicon glyphicon-edit" ng-click="editProv(marca)"></a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

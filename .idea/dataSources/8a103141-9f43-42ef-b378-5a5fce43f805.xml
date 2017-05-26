@@ -17,740 +17,999 @@
     <table id="11" parent="2" name="cat_ing_br_prov"/>
     <table id="12" parent="2" name="cat_ing_br_prov_pcia"/>
     <table id="13" parent="2" name="estados"/>
-    <table id="14" parent="2" name="pais"/>
-    <table id="15" parent="2" name="proveedor"/>
-    <table id="16" parent="2" name="provincia"/>
-    <table id="17" parent="2" name="rol"/>
-    <table id="18" parent="2" name="rubro_proveedor"/>
-    <table id="19" parent="2" name="tipo_iva"/>
-    <table id="20" parent="2" name="usuario"/>
-    <routine id="21" parent="2" name="Usuario_Insert">
+    <table id="14" parent="2" name="marca"/>
+    <table id="15" parent="2" name="moneda_ca"/>
+    <table id="16" parent="2" name="moneda_de"/>
+    <table id="17" parent="2" name="pais"/>
+    <table id="18" parent="2" name="producto"/>
+    <table id="19" parent="2" name="proveedor"/>
+    <table id="20" parent="2" name="provincia"/>
+    <table id="21" parent="2" name="rol"/>
+    <table id="22" parent="2" name="rubro_proveedor"/>
+    <table id="23" parent="2" name="tipo_iva"/>
+    <table id="24" parent="2" name="uni_med"/>
+    <table id="25" parent="2" name="usuario"/>
+    <routine id="26" parent="2" name="Usuario_Insert">
       <RoutineKind>procedure</RoutineKind>
     </routine>
-    <routine id="22" parent="2" name="Proveedor_Cons">
+    <routine id="27" parent="2" name="Proveedor_Cons">
       <RoutineKind>procedure</RoutineKind>
     </routine>
-    <routine id="23" parent="2" name="Proveedor_Igual_Codigo">
+    <routine id="28" parent="2" name="Proveedor_Igual_Codigo">
       <RoutineKind>procedure</RoutineKind>
     </routine>
-    <routine id="24" parent="2" name="Proveedor_Insert">
+    <routine id="29" parent="2" name="Proveedor_Insert">
       <RoutineKind>procedure</RoutineKind>
     </routine>
-    <routine id="25" parent="2" name="Usuario_Igual_Usr_Pw">
+    <routine id="30" parent="2" name="Usuario_Igual_Usr_Pw">
       <RoutineKind>procedure</RoutineKind>
     </routine>
-    <column id="26" parent="9" name="Id">
+    <column id="31" parent="9" name="Id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="27" parent="9" name="Descripcion">
+    <column id="32" parent="9" name="Descripcion">
       <Position>2</Position>
       <DataType>varchar(100)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="28" parent="9" name="Barrios_Descripcion_uindex">
+    <index id="33" parent="9" name="Barrios_Descripcion_uindex">
       <ColNames>Descripcion</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="29" parent="9" name="PRIMARY">
+    <key id="34" parent="9" name="PRIMARY">
       <ColNames>Id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="30" parent="9" name="Barrios_Descripcion_uindex">
+    <key id="35" parent="9" name="Barrios_Descripcion_uindex">
       <ColNames>Descripcion</ColNames>
       <UnderlyingIndexName>Barrios_Descripcion_uindex</UnderlyingIndexName>
     </key>
-    <column id="31" parent="10" name="Id">
+    <column id="36" parent="10" name="Id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="32" parent="10" name="Codigo">
+    <column id="37" parent="10" name="Codigo">
       <Position>2</Position>
       <DataType>char(2)|0</DataType>
     </column>
-    <column id="33" parent="10" name="Descripcion">
+    <column id="38" parent="10" name="Descripcion">
       <Position>3</Position>
       <DataType>varchar(50)|0</DataType>
     </column>
-    <column id="34" parent="10" name="Inscripto">
+    <column id="39" parent="10" name="Inscripto">
       <Position>4</Position>
       <DataType>bit(1)|0</DataType>
       <DefaultExpression>b&apos;0&apos;</DefaultExpression>
     </column>
-    <column id="35" parent="10" name="Exento">
+    <column id="40" parent="10" name="Exento">
       <Position>5</Position>
       <DataType>bit(1)|0</DataType>
       <DefaultExpression>b&apos;0&apos;</DefaultExpression>
     </column>
-    <index id="36" parent="10" name="Cat_Ganancias_Codigo_uindex">
+    <index id="41" parent="10" name="Cat_Ganancias_Codigo_uindex">
       <ColNames>Codigo</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="37" parent="10" name="Cat_Ganancias_Id_uindex">
+    <index id="42" parent="10" name="Cat_Ganancias_Id_uindex">
       <ColNames>Id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="38" parent="10" name="PRIMARY">
+    <key id="43" parent="10" name="PRIMARY">
       <ColNames>Id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="39" parent="10" name="Cat_Ganancias_Id_uindex">
+    <key id="44" parent="10" name="Cat_Ganancias_Id_uindex">
       <ColNames>Id</ColNames>
       <UnderlyingIndexName>Cat_Ganancias_Id_uindex</UnderlyingIndexName>
     </key>
-    <key id="40" parent="10" name="Cat_Ganancias_Codigo_uindex">
+    <key id="45" parent="10" name="Cat_Ganancias_Codigo_uindex">
       <ColNames>Codigo</ColNames>
       <UnderlyingIndexName>Cat_Ganancias_Codigo_uindex</UnderlyingIndexName>
     </key>
-    <column id="41" parent="11" name="Id">
+    <column id="46" parent="11" name="Id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="42" parent="11" name="Descripcion">
+    <column id="47" parent="11" name="Descripcion">
       <Position>2</Position>
       <DataType>varchar(50)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="43" parent="11" name="Porcentaje">
+    <column id="48" parent="11" name="Porcentaje">
       <Position>3</Position>
       <DataType>decimal(12,3)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="44" parent="11" name="Minimo">
+    <column id="49" parent="11" name="Minimo">
       <Position>4</Position>
       <DataType>decimal(12,3)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="45" parent="11" name="esDeProvincia">
+    <column id="50" parent="11" name="esDeProvincia">
       <Position>5</Position>
       <DataType>bit(1)|0</DataType>
       <DefaultExpression>b&apos;0&apos;</DefaultExpression>
     </column>
-    <column id="46" parent="11" name="esDeConvenio">
+    <column id="51" parent="11" name="esDeConvenio">
       <Position>6</Position>
       <DataType>bit(1)|0</DataType>
       <DefaultExpression>b&apos;0&apos;</DefaultExpression>
     </column>
-    <column id="47" parent="11" name="esAgenteRet">
+    <column id="52" parent="11" name="esAgenteRet">
       <Position>7</Position>
       <DataType>bit(1)|0</DataType>
       <DefaultExpression>b&apos;0&apos;</DefaultExpression>
     </column>
-    <column id="48" parent="11" name="esDeCapital">
+    <column id="53" parent="11" name="esDeCapital">
       <Position>8</Position>
       <DataType>bit(1)|0</DataType>
       <DefaultExpression>b&apos;0&apos;</DefaultExpression>
     </column>
-    <column id="49" parent="11" name="porPadron">
+    <column id="54" parent="11" name="porPadron">
       <Position>9</Position>
       <DataType>decimal(12,3)|0</DataType>
     </column>
-    <column id="50" parent="11" name="esExento">
+    <column id="55" parent="11" name="esExento">
       <Position>10</Position>
       <DataType>bit(1)|0</DataType>
       <DefaultExpression>b&apos;0&apos;</DefaultExpression>
     </column>
-    <column id="51" parent="11" name="SituacionIIBB_CABA">
+    <column id="56" parent="11" name="SituacionIIBB_CABA">
       <Position>11</Position>
       <DataType>int(11)|0</DataType>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
     </column>
-    <index id="52" parent="11" name="Cat_Ing_Br_Prov_Descripcion_uindex">
+    <index id="57" parent="11" name="Cat_Ing_Br_Prov_Descripcion_uindex">
       <ColNames>Descripcion</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="53" parent="11" name="Cat_Ing_Br_Prov_Id_uindex">
+    <index id="58" parent="11" name="Cat_Ing_Br_Prov_Id_uindex">
       <ColNames>Id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="54" parent="11" name="PRIMARY">
+    <key id="59" parent="11" name="PRIMARY">
       <ColNames>Id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="55" parent="11" name="Cat_Ing_Br_Prov_Id_uindex">
+    <key id="60" parent="11" name="Cat_Ing_Br_Prov_Id_uindex">
       <ColNames>Id</ColNames>
       <UnderlyingIndexName>Cat_Ing_Br_Prov_Id_uindex</UnderlyingIndexName>
     </key>
-    <key id="56" parent="11" name="Cat_Ing_Br_Prov_Descripcion_uindex">
+    <key id="61" parent="11" name="Cat_Ing_Br_Prov_Descripcion_uindex">
       <ColNames>Descripcion</ColNames>
       <UnderlyingIndexName>Cat_Ing_Br_Prov_Descripcion_uindex</UnderlyingIndexName>
     </key>
-    <column id="57" parent="12" name="Id">
+    <column id="62" parent="12" name="Id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="58" parent="12" name="Descripcion">
+    <column id="63" parent="12" name="Descripcion">
       <Position>2</Position>
       <DataType>varchar(50)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="59" parent="12" name="Porcentaje">
+    <column id="64" parent="12" name="Porcentaje">
       <Position>3</Position>
       <DataType>decimal(12,3)|0</DataType>
     </column>
-    <column id="60" parent="12" name="Minimo">
+    <column id="65" parent="12" name="Minimo">
       <Position>4</Position>
       <DataType>decimal(12,3)|0</DataType>
     </column>
-    <index id="61" parent="12" name="cat_ing_br_prov_pcia_Descripcion_uindex">
+    <index id="66" parent="12" name="cat_ing_br_prov_pcia_Descripcion_uindex">
       <ColNames>Descripcion</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="62" parent="12" name="cat_ing_br_prov_pcia_Id_uindex">
+    <index id="67" parent="12" name="cat_ing_br_prov_pcia_Id_uindex">
       <ColNames>Id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="63" parent="12" name="PRIMARY">
+    <key id="68" parent="12" name="PRIMARY">
       <ColNames>Id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="64" parent="12" name="cat_ing_br_prov_pcia_Id_uindex">
+    <key id="69" parent="12" name="cat_ing_br_prov_pcia_Id_uindex">
       <ColNames>Id</ColNames>
       <UnderlyingIndexName>cat_ing_br_prov_pcia_Id_uindex</UnderlyingIndexName>
     </key>
-    <key id="65" parent="12" name="cat_ing_br_prov_pcia_Descripcion_uindex">
+    <key id="70" parent="12" name="cat_ing_br_prov_pcia_Descripcion_uindex">
       <ColNames>Descripcion</ColNames>
       <UnderlyingIndexName>cat_ing_br_prov_pcia_Descripcion_uindex</UnderlyingIndexName>
     </key>
-    <column id="66" parent="13" name="Id_Estado">
+    <column id="71" parent="13" name="Id_Estado">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="67" parent="13" name="Descripcion">
+    <column id="72" parent="13" name="Descripcion">
       <Position>2</Position>
       <DataType>varchar(3)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="68" parent="13" name="estados_Descripcion_uindex">
+    <index id="73" parent="13" name="estados_Descripcion_uindex">
       <ColNames>Descripcion</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="69" parent="13" name="PRIMARY">
+    <key id="74" parent="13" name="PRIMARY">
       <ColNames>Id_Estado</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="70" parent="13" name="estados_Descripcion_uindex">
+    <key id="75" parent="13" name="estados_Descripcion_uindex">
       <ColNames>Descripcion</ColNames>
       <UnderlyingIndexName>estados_Descripcion_uindex</UnderlyingIndexName>
     </key>
-    <column id="71" parent="14" name="Id_Pais">
+    <column id="76" parent="14" name="Id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="72" parent="14" name="Descripcion">
+    <column id="77" parent="14" name="Nombre">
+      <Position>2</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="78" parent="14" name="Id_Estado">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <index id="79" parent="14" name="Marca_Id_uindex">
+      <ColNames>Id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="80" parent="14" name="Marca_Nombre_uindex">
+      <ColNames>Nombre</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="81" parent="14" name="PRIMARY">
+      <ColNames>Id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="82" parent="14" name="Marca_Id_uindex">
+      <ColNames>Id</ColNames>
+      <UnderlyingIndexName>Marca_Id_uindex</UnderlyingIndexName>
+    </key>
+    <key id="83" parent="14" name="Marca_Nombre_uindex">
+      <ColNames>Nombre</ColNames>
+      <UnderlyingIndexName>Marca_Nombre_uindex</UnderlyingIndexName>
+    </key>
+    <column id="84" parent="15" name="Id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="85" parent="15" name="Codigo">
+      <Position>2</Position>
+      <DataType>char(3)|0</DataType>
+    </column>
+    <column id="86" parent="15" name="Detalle_Moneda">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="87" parent="15" name="Codigo_Afip">
+      <Position>4</Position>
+      <DataType>char(3)|0</DataType>
+    </column>
+    <index id="88" parent="15" name="Moneda_Ca_Codigo_uindex">
+      <ColNames>Codigo</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="89" parent="15" name="Moneda_Ca_Id_uindex">
+      <ColNames>Id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="90" parent="15" name="PRIMARY">
+      <ColNames>Id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="91" parent="15" name="Moneda_Ca_Id_uindex">
+      <ColNames>Id</ColNames>
+      <UnderlyingIndexName>Moneda_Ca_Id_uindex</UnderlyingIndexName>
+    </key>
+    <key id="92" parent="15" name="Moneda_Ca_Codigo_uindex">
+      <ColNames>Codigo</ColNames>
+      <UnderlyingIndexName>Moneda_Ca_Codigo_uindex</UnderlyingIndexName>
+    </key>
+    <column id="93" parent="16" name="Id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="94" parent="16" name="Id_Moneda_Ca">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="95" parent="16" name="Fecha_Cotizacion">
+      <Position>3</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="96" parent="16" name="Valor_Moneda">
+      <Position>4</Position>
+      <DataType>decimal(12,3)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="97" parent="16" name="moneda_de_Id_uindex">
+      <ColNames>Id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="98" parent="16" name="PRIMARY">
+      <ColNames>Id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="99" parent="16" name="moneda_de_Id_uindex">
+      <ColNames>Id</ColNames>
+      <UnderlyingIndexName>moneda_de_Id_uindex</UnderlyingIndexName>
+    </key>
+    <column id="100" parent="17" name="Id_Pais">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="101" parent="17" name="Descripcion">
       <Position>2</Position>
       <DataType>varchar(50)|0</DataType>
     </column>
-    <key id="73" parent="14" name="PRIMARY">
+    <key id="102" parent="17" name="PRIMARY">
       <ColNames>Id_Pais</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="74" parent="15" name="Id">
+    <column id="103" parent="18" name="Id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="75" parent="15" name="Razon_Social">
+    <column id="104" parent="18" name="Codigo">
+      <Position>2</Position>
+      <DataType>varchar(8)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="105" parent="18" name="Descripcion">
+      <Position>3</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="106" parent="18" name="Id_Ume_Cpra">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <column id="107" parent="18" name="Id_Ume_Vta">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <column id="108" parent="18" name="Minimo">
+      <Position>6</Position>
+      <DataType>decimal(12,3)|0</DataType>
+      <DefaultExpression>&apos;1.000&apos;</DefaultExpression>
+    </column>
+    <column id="109" parent="18" name="Costo">
+      <Position>7</Position>
+      <DataType>decimal(12,3)|0</DataType>
+      <DefaultExpression>&apos;1.000&apos;</DefaultExpression>
+    </column>
+    <column id="110" parent="18" name="Id_Rubro_Cpra">
+      <Position>8</Position>
+      <DataType>int(11)|0</DataType>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <column id="111" parent="18" name="Id_Rubro_Vta">
+      <Position>9</Position>
+      <DataType>int(11)|0</DataType>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <column id="112" parent="18" name="Id_Moneda">
+      <Position>10</Position>
+      <DataType>int(11)|0</DataType>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <column id="113" parent="18" name="Id_Marca">
+      <Position>11</Position>
+      <DataType>int(11)|0</DataType>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <column id="114" parent="18" name="En_Web">
+      <Position>12</Position>
+      <DataType>bit(1)|0</DataType>
+      <DefaultExpression>b&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="115" parent="18" name="En_ML">
+      <Position>13</Position>
+      <DataType>bit(1)|0</DataType>
+      <DefaultExpression>b&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="116" parent="18" name="Permitir_Vendedores">
+      <Position>14</Position>
+      <DataType>bit(1)|0</DataType>
+      <DefaultExpression>b&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="117" parent="18" name="Id_Estado">
+      <Position>15</Position>
+      <DataType>int(11)|0</DataType>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <index id="118" parent="18" name="Producto_Codigo_uindex">
+      <ColNames>Codigo</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="119" parent="18" name="Producto_Id_uindex">
+      <ColNames>Id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="120" parent="18" name="PRIMARY">
+      <ColNames>Id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="121" parent="18" name="Producto_Id_uindex">
+      <ColNames>Id</ColNames>
+      <UnderlyingIndexName>Producto_Id_uindex</UnderlyingIndexName>
+    </key>
+    <key id="122" parent="18" name="Producto_Codigo_uindex">
+      <ColNames>Codigo</ColNames>
+      <UnderlyingIndexName>Producto_Codigo_uindex</UnderlyingIndexName>
+    </key>
+    <column id="123" parent="19" name="Id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="124" parent="19" name="Razon_Social">
       <Position>2</Position>
       <DataType>varchar(60)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="76" parent="15" name="Cuit">
+    <column id="125" parent="19" name="Cuit">
       <Position>3</Position>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="77" parent="15" name="Nro_Ing_Brutos">
+    <column id="126" parent="19" name="Nro_Ing_Brutos">
       <Position>4</Position>
       <DataType>int(11)|0</DataType>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
     </column>
-    <column id="78" parent="15" name="Id_Iva">
+    <column id="127" parent="19" name="Id_Iva">
       <Position>5</Position>
       <DataType>int(11)|0</DataType>
       <DefaultExpression>&apos;1&apos;</DefaultExpression>
     </column>
-    <column id="79" parent="15" name="Id_Cat_Ing_Br">
+    <column id="128" parent="19" name="Id_Cat_Ing_Br">
       <Position>6</Position>
       <DataType>int(11)|0</DataType>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
     </column>
-    <column id="80" parent="15" name="Id_Cat_Ganancia">
+    <column id="129" parent="19" name="Id_Cat_Ganancia">
       <Position>7</Position>
       <DataType>int(11)|0</DataType>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
     </column>
-    <column id="81" parent="15" name="Id_Reg_Ganancia">
+    <column id="130" parent="19" name="Id_Reg_Ganancia">
       <Position>8</Position>
       <DataType>int(11)|0</DataType>
       <DefaultExpression>&apos;1&apos;</DefaultExpression>
     </column>
-    <column id="82" parent="15" name="Id_Rubro">
+    <column id="131" parent="19" name="Id_Rubro">
       <Position>9</Position>
       <DataType>int(11)|0</DataType>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
     </column>
-    <column id="83" parent="15" name="Id_Pais">
+    <column id="132" parent="19" name="Id_Pais">
       <Position>10</Position>
       <DataType>int(11)|0</DataType>
       <DefaultExpression>&apos;1&apos;</DefaultExpression>
     </column>
-    <column id="84" parent="15" name="Id_Provincia">
+    <column id="133" parent="19" name="Id_Provincia">
       <Position>11</Position>
       <DataType>int(11)|0</DataType>
       <DefaultExpression>&apos;1&apos;</DefaultExpression>
     </column>
-    <column id="85" parent="15" name="Barrio">
+    <column id="134" parent="19" name="Barrio">
       <Position>12</Position>
       <DataType>varchar(50)|0</DataType>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
     </column>
-    <column id="86" parent="15" name="Codigo_Postal">
+    <column id="135" parent="19" name="Codigo_Postal">
       <Position>13</Position>
       <DataType>varchar(10)|0</DataType>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
     </column>
-    <column id="87" parent="15" name="Id_Condicion_Pago">
+    <column id="136" parent="19" name="Id_Condicion_Pago">
       <Position>14</Position>
       <DataType>int(11)|0</DataType>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
     </column>
-    <column id="88" parent="15" name="Email">
+    <column id="137" parent="19" name="Email">
       <Position>15</Position>
       <DataType>varchar(100)|0</DataType>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
     </column>
-    <column id="89" parent="15" name="Pagina_Web">
+    <column id="138" parent="19" name="Pagina_Web">
       <Position>16</Position>
       <DataType>varchar(100)|0</DataType>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
     </column>
-    <column id="90" parent="15" name="Domicilio">
+    <column id="139" parent="19" name="Domicilio">
       <Position>17</Position>
       <DataType>varchar(50)|0</DataType>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
     </column>
-    <column id="91" parent="15" name="Telefono">
+    <column id="140" parent="19" name="Telefono">
       <Position>18</Position>
       <DataType>varchar(50)|0</DataType>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
     </column>
-    <column id="92" parent="15" name="Celular">
+    <column id="141" parent="19" name="Celular">
       <Position>19</Position>
       <DataType>varchar(30)|0</DataType>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
     </column>
-    <column id="93" parent="15" name="Fax">
+    <column id="142" parent="19" name="Fax">
       <Position>20</Position>
       <DataType>varchar(50)|0</DataType>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
     </column>
-    <column id="94" parent="15" name="Observaciones">
+    <column id="143" parent="19" name="Observaciones">
       <Position>21</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="95" parent="15" name="Localidad">
+    <column id="144" parent="19" name="Localidad">
       <Position>22</Position>
       <DataType>varchar(100)|0</DataType>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
     </column>
-    <column id="96" parent="15" name="Agente_Retencion">
+    <column id="145" parent="19" name="Agente_Retencion">
       <Position>23</Position>
       <DataType>tinyint(1)|0</DataType>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
     </column>
-    <column id="97" parent="15" name="Estado">
+    <column id="146" parent="19" name="Estado">
       <Position>24</Position>
       <DataType>char(3)|0</DataType>
       <DefaultExpression>&apos;CAR&apos;</DefaultExpression>
     </column>
-    <index id="98" parent="15" name="proveedor_Cuit_uindex">
+    <index id="147" parent="19" name="proveedor_Cuit_uindex">
       <ColNames>Cuit</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="99" parent="15" name="proveedor_Id_uindex">
+    <index id="148" parent="19" name="proveedor_Id_uindex">
       <ColNames>Id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="100" parent="15" name="proveedor_Razon_Social_uindex">
+    <index id="149" parent="19" name="proveedor_Razon_Social_uindex">
       <ColNames>Razon_Social</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="101" parent="15" name="PRIMARY">
+    <key id="150" parent="19" name="PRIMARY">
       <ColNames>Id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="102" parent="15" name="proveedor_Id_uindex">
+    <key id="151" parent="19" name="proveedor_Id_uindex">
       <ColNames>Id</ColNames>
       <UnderlyingIndexName>proveedor_Id_uindex</UnderlyingIndexName>
     </key>
-    <key id="103" parent="15" name="proveedor_Razon_Social_uindex">
+    <key id="152" parent="19" name="proveedor_Razon_Social_uindex">
       <ColNames>Razon_Social</ColNames>
       <UnderlyingIndexName>proveedor_Razon_Social_uindex</UnderlyingIndexName>
     </key>
-    <key id="104" parent="15" name="proveedor_Cuit_uindex">
+    <key id="153" parent="19" name="proveedor_Cuit_uindex">
       <ColNames>Cuit</ColNames>
       <UnderlyingIndexName>proveedor_Cuit_uindex</UnderlyingIndexName>
     </key>
-    <column id="105" parent="16" name="Id">
+    <column id="154" parent="20" name="Id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="106" parent="16" name="Descripcion">
+    <column id="155" parent="20" name="Descripcion">
       <Position>2</Position>
       <DataType>varchar(50)|0</DataType>
     </column>
-    <index id="107" parent="16" name="Provincia_Descripcion_uindex">
+    <index id="156" parent="20" name="Provincia_Descripcion_uindex">
       <ColNames>Descripcion</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="108" parent="16" name="PRIMARY">
+    <key id="157" parent="20" name="PRIMARY">
       <ColNames>Id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="109" parent="16" name="Provincia_Descripcion_uindex">
+    <key id="158" parent="20" name="Provincia_Descripcion_uindex">
       <ColNames>Descripcion</ColNames>
       <UnderlyingIndexName>Provincia_Descripcion_uindex</UnderlyingIndexName>
     </key>
-    <column id="110" parent="17" name="Id_Rol">
+    <column id="159" parent="21" name="Id_Rol">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="111" parent="17" name="Descripcion">
+    <column id="160" parent="21" name="Descripcion">
       <Position>2</Position>
       <DataType>varchar(50)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="112" parent="17" name="Rol_Descripcion_uindex">
+    <index id="161" parent="21" name="Rol_Descripcion_uindex">
       <ColNames>Descripcion</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="113" parent="17" name="Rol_Id_Rol_uindex">
+    <index id="162" parent="21" name="Rol_Id_Rol_uindex">
       <ColNames>Id_Rol</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="114" parent="17" name="PRIMARY">
+    <key id="163" parent="21" name="PRIMARY">
       <ColNames>Id_Rol</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="115" parent="17" name="Rol_Id_Rol_uindex">
+    <key id="164" parent="21" name="Rol_Id_Rol_uindex">
       <ColNames>Id_Rol</ColNames>
       <UnderlyingIndexName>Rol_Id_Rol_uindex</UnderlyingIndexName>
     </key>
-    <key id="116" parent="17" name="Rol_Descripcion_uindex">
+    <key id="165" parent="21" name="Rol_Descripcion_uindex">
       <ColNames>Descripcion</ColNames>
       <UnderlyingIndexName>Rol_Descripcion_uindex</UnderlyingIndexName>
     </key>
-    <column id="117" parent="18" name="Id">
+    <column id="166" parent="22" name="Id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="118" parent="18" name="Descripcion">
+    <column id="167" parent="22" name="Descripcion">
       <Position>2</Position>
       <DataType>varchar(50)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="119" parent="18" name="Id_Estado">
+    <column id="168" parent="22" name="Id_Estado">
       <Position>3</Position>
       <DataType>int(11)|0</DataType>
       <DefaultExpression>&apos;1&apos;</DefaultExpression>
     </column>
-    <index id="120" parent="18" name="Rubro_Proveedor_Descripcion_uindex">
+    <index id="169" parent="22" name="Rubro_Proveedor_Descripcion_uindex">
       <ColNames>Descripcion</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="121" parent="18" name="Rubro_Proveedor_Id_uindex">
+    <index id="170" parent="22" name="Rubro_Proveedor_Id_uindex">
       <ColNames>Id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="122" parent="18" name="PRIMARY">
+    <key id="171" parent="22" name="PRIMARY">
       <ColNames>Id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="123" parent="18" name="Rubro_Proveedor_Id_uindex">
+    <key id="172" parent="22" name="Rubro_Proveedor_Id_uindex">
       <ColNames>Id</ColNames>
       <UnderlyingIndexName>Rubro_Proveedor_Id_uindex</UnderlyingIndexName>
     </key>
-    <key id="124" parent="18" name="Rubro_Proveedor_Descripcion_uindex">
+    <key id="173" parent="22" name="Rubro_Proveedor_Descripcion_uindex">
       <ColNames>Descripcion</ColNames>
       <UnderlyingIndexName>Rubro_Proveedor_Descripcion_uindex</UnderlyingIndexName>
     </key>
-    <column id="125" parent="19" name="Id">
+    <column id="174" parent="23" name="Id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="126" parent="19" name="Codigo_Iva">
+    <column id="175" parent="23" name="Codigo_Iva">
       <Position>2</Position>
       <DataType>char(2)|0</DataType>
     </column>
-    <column id="127" parent="19" name="Descripcion">
+    <column id="176" parent="23" name="Descripcion">
       <Position>3</Position>
       <DataType>varchar(30)|0</DataType>
     </column>
-    <column id="128" parent="19" name="Porcentaje1">
+    <column id="177" parent="23" name="Porcentaje1">
       <Position>4</Position>
       <DataType>decimal(12,3)|0</DataType>
     </column>
-    <column id="129" parent="19" name="Porcentaje2">
+    <column id="178" parent="23" name="Porcentaje2">
       <Position>5</Position>
       <DataType>decimal(12,3)|0</DataType>
     </column>
-    <index id="130" parent="19" name="Tipo_Iva_Codigo_Iva_uindex">
+    <index id="179" parent="23" name="Tipo_Iva_Codigo_Iva_uindex">
       <ColNames>Codigo_Iva</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="131" parent="19" name="Tipo_Iva_Descripcion_uindex">
+    <index id="180" parent="23" name="Tipo_Iva_Descripcion_uindex">
       <ColNames>Descripcion</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="132" parent="19" name="Tipo_Iva_Id_uindex">
+    <index id="181" parent="23" name="Tipo_Iva_Id_uindex">
       <ColNames>Id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="133" parent="19" name="PRIMARY">
+    <key id="182" parent="23" name="PRIMARY">
       <ColNames>Id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="134" parent="19" name="Tipo_Iva_Id_uindex">
+    <key id="183" parent="23" name="Tipo_Iva_Id_uindex">
       <ColNames>Id</ColNames>
       <UnderlyingIndexName>Tipo_Iva_Id_uindex</UnderlyingIndexName>
     </key>
-    <key id="135" parent="19" name="Tipo_Iva_Codigo_Iva_uindex">
+    <key id="184" parent="23" name="Tipo_Iva_Codigo_Iva_uindex">
       <ColNames>Codigo_Iva</ColNames>
       <UnderlyingIndexName>Tipo_Iva_Codigo_Iva_uindex</UnderlyingIndexName>
     </key>
-    <key id="136" parent="19" name="Tipo_Iva_Descripcion_uindex">
+    <key id="185" parent="23" name="Tipo_Iva_Descripcion_uindex">
       <ColNames>Descripcion</ColNames>
       <UnderlyingIndexName>Tipo_Iva_Descripcion_uindex</UnderlyingIndexName>
     </key>
-    <column id="137" parent="20" name="Id_Usuario">
+    <column id="186" parent="24" name="Id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="138" parent="20" name="Name_User">
+    <column id="187" parent="24" name="Codigo">
+      <Position>2</Position>
+      <DataType>char(3)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="188" parent="24" name="Unidad">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="189" parent="24" name="Uni_Med_Codigo_uindex">
+      <ColNames>Codigo</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="190" parent="24" name="Uni_Med_Id_uindex">
+      <ColNames>Id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="191" parent="24" name="Uni_Med_Unidad_uindex">
+      <ColNames>Unidad</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="192" parent="24" name="PRIMARY">
+      <ColNames>Id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="193" parent="24" name="Uni_Med_Id_uindex">
+      <ColNames>Id</ColNames>
+      <UnderlyingIndexName>Uni_Med_Id_uindex</UnderlyingIndexName>
+    </key>
+    <key id="194" parent="24" name="Uni_Med_Codigo_uindex">
+      <ColNames>Codigo</ColNames>
+      <UnderlyingIndexName>Uni_Med_Codigo_uindex</UnderlyingIndexName>
+    </key>
+    <key id="195" parent="24" name="Uni_Med_Unidad_uindex">
+      <ColNames>Unidad</ColNames>
+      <UnderlyingIndexName>Uni_Med_Unidad_uindex</UnderlyingIndexName>
+    </key>
+    <column id="196" parent="25" name="Id_Usuario">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="197" parent="25" name="Name_User">
       <Position>2</Position>
       <DataType>varchar(10)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="139" parent="20" name="Pw_User">
+    <column id="198" parent="25" name="Pw_User">
       <Position>3</Position>
       <DataType>varchar(300)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="140" parent="20" name="Nombre">
+    <column id="199" parent="25" name="Nombre">
       <Position>4</Position>
       <DataType>varchar(50)|0</DataType>
     </column>
-    <column id="141" parent="20" name="Apellido">
+    <column id="200" parent="25" name="Apellido">
       <Position>5</Position>
       <DataType>varchar(50)|0</DataType>
     </column>
-    <column id="142" parent="20" name="Email">
+    <column id="201" parent="25" name="Email">
       <Position>6</Position>
       <DataType>varchar(50)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="143" parent="20" name="Fecha_Nacimiento">
+    <column id="202" parent="25" name="Fecha_Nacimiento">
       <Position>7</Position>
       <DataType>date|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="144" parent="20" name="Telefono">
+    <column id="203" parent="25" name="Telefono">
       <Position>8</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="145" parent="20" name="Celular">
+    <column id="204" parent="25" name="Celular">
       <Position>9</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="146" parent="20" name="Fecha_Creacion">
+    <column id="205" parent="25" name="Fecha_Creacion">
       <Position>10</Position>
       <DataType>datetime|0</DataType>
     </column>
-    <column id="147" parent="20" name="Fecha_Logueo">
+    <column id="206" parent="25" name="Fecha_Logueo">
       <Position>11</Position>
       <DataType>datetime|0</DataType>
     </column>
-    <column id="148" parent="20" name="Esta_Logueado">
+    <column id="207" parent="25" name="Esta_Logueado">
       <Position>12</Position>
       <DataType>tinyint(1)|0</DataType>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
     </column>
-    <column id="149" parent="20" name="Id_Rol">
+    <column id="208" parent="25" name="Id_Rol">
       <Position>13</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;2&apos;</DefaultExpression>
     </column>
-    <column id="150" parent="20" name="Id_Estado">
+    <column id="209" parent="25" name="Id_Estado">
       <Position>14</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;1&apos;</DefaultExpression>
     </column>
-    <index id="151" parent="20" name="Usuario_Email_uindex">
+    <index id="210" parent="25" name="Usuario_Email_uindex">
       <ColNames>Email</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="152" parent="20" name="Usuario_Id_Usuario_uindex">
+    <index id="211" parent="25" name="Usuario_Id_Usuario_uindex">
       <ColNames>Id_Usuario</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="153" parent="20" name="Usuario_Name_User_uindex">
+    <index id="212" parent="25" name="Usuario_Name_User_uindex">
       <ColNames>Name_User</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="154" parent="20" name="PRIMARY">
+    <key id="213" parent="25" name="PRIMARY">
       <ColNames>Id_Usuario</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="155" parent="20" name="Usuario_Id_Usuario_uindex">
+    <key id="214" parent="25" name="Usuario_Id_Usuario_uindex">
       <ColNames>Id_Usuario</ColNames>
       <UnderlyingIndexName>Usuario_Id_Usuario_uindex</UnderlyingIndexName>
     </key>
-    <key id="156" parent="20" name="Usuario_Name_User_uindex">
+    <key id="215" parent="25" name="Usuario_Name_User_uindex">
       <ColNames>Name_User</ColNames>
       <UnderlyingIndexName>Usuario_Name_User_uindex</UnderlyingIndexName>
     </key>
-    <key id="157" parent="20" name="Usuario_Email_uindex">
+    <key id="216" parent="25" name="Usuario_Email_uindex">
       <ColNames>Email</ColNames>
       <UnderlyingIndexName>Usuario_Email_uindex</UnderlyingIndexName>
     </key>
-    <argument id="158" parent="21" name="_Name_User">
+    <argument id="217" parent="26" name="_Name_User">
       <DataType>varchar(10)|0</DataType>
     </argument>
-    <argument id="159" parent="21" name="_Pw_User">
+    <argument id="218" parent="26" name="_Pw_User">
       <DataType>varchar(300)|0</DataType>
     </argument>
-    <argument id="160" parent="21" name="_Nombre">
+    <argument id="219" parent="26" name="_Nombre">
       <DataType>varchar(50)|0</DataType>
     </argument>
-    <argument id="161" parent="21" name="_Apellido">
+    <argument id="220" parent="26" name="_Apellido">
       <DataType>varchar(50)|0</DataType>
     </argument>
-    <argument id="162" parent="21" name="_Email">
+    <argument id="221" parent="26" name="_Email">
       <DataType>varchar(50)|0</DataType>
     </argument>
-    <argument id="163" parent="21" name="_Fecha_Nacimiento">
+    <argument id="222" parent="26" name="_Fecha_Nacimiento">
       <DataType>date|0</DataType>
     </argument>
-    <argument id="164" parent="21" name="_Telefono">
+    <argument id="223" parent="26" name="_Telefono">
       <DataType>int(11)|0</DataType>
     </argument>
-    <argument id="165" parent="21" name="_Celular">
+    <argument id="224" parent="26" name="_Celular">
       <DataType>int(11)|0</DataType>
     </argument>
-    <argument id="166" parent="21" name="_Fecha_Creacion">
+    <argument id="225" parent="26" name="_Fecha_Creacion">
       <DataType>datetime|0</DataType>
     </argument>
-    <argument id="167" parent="21" name="_Fecha_Logueo">
+    <argument id="226" parent="26" name="_Fecha_Logueo">
       <DataType>datetime|0</DataType>
     </argument>
-    <argument id="168" parent="21" name="_Esta_Logueado">
+    <argument id="227" parent="26" name="_Esta_Logueado">
       <DataType>tinyint(1)|0</DataType>
     </argument>
-    <argument id="169" parent="21" name="_Id_Rol">
+    <argument id="228" parent="26" name="_Id_Rol">
       <DataType>int(11)|0</DataType>
     </argument>
-    <argument id="170" parent="21" name="_Id_Estado">
+    <argument id="229" parent="26" name="_Id_Estado">
       <DataType>int(11)|0</DataType>
     </argument>
-    <argument id="171" parent="23" name="_Codigo">
+    <argument id="230" parent="28" name="_Codigo">
       <DataType>int(11)|0</DataType>
     </argument>
-    <argument id="172" parent="24" name="_Razon_Social">
+    <argument id="231" parent="29" name="_Razon_Social">
       <DataType>varchar(60)|0</DataType>
     </argument>
-    <argument id="173" parent="24" name="_Cuit">
+    <argument id="232" parent="29" name="_Cuit">
       <DataType>bigint(20)|0</DataType>
     </argument>
-    <argument id="174" parent="24" name="_Nro_Ing_Brutos">
+    <argument id="233" parent="29" name="_Nro_Ing_Brutos">
       <DataType>bigint(20)|0</DataType>
     </argument>
-    <argument id="175" parent="24" name="_Id_Iva">
+    <argument id="234" parent="29" name="_Id_Iva">
       <DataType>int(11)|0</DataType>
     </argument>
-    <argument id="176" parent="24" name="_Id_Cat_Ing_Br">
+    <argument id="235" parent="29" name="_Id_Cat_Ing_Br">
       <DataType>int(11)|0</DataType>
     </argument>
-    <argument id="177" parent="24" name="_Id_Reg_Ganancia">
+    <argument id="236" parent="29" name="_Id_Reg_Ganancia">
       <DataType>int(11)|0</DataType>
     </argument>
-    <argument id="178" parent="24" name="_Id_Rubro">
+    <argument id="237" parent="29" name="_Id_Rubro">
       <DataType>int(11)|0</DataType>
     </argument>
-    <argument id="179" parent="24" name="_Agente_Retencion">
+    <argument id="238" parent="29" name="_Agente_Retencion">
       <DataType>tinyint(1)|0</DataType>
     </argument>
-    <argument id="180" parent="24" name="_Id_Pais">
+    <argument id="239" parent="29" name="_Id_Pais">
       <DataType>int(11)|0</DataType>
     </argument>
-    <argument id="181" parent="24" name="_Id_Provincia">
+    <argument id="240" parent="29" name="_Id_Provincia">
       <DataType>int(11)|0</DataType>
     </argument>
-    <argument id="182" parent="24" name="_Codigo_Postal">
+    <argument id="241" parent="29" name="_Codigo_Postal">
       <DataType>varchar(10)|0</DataType>
     </argument>
-    <argument id="183" parent="24" name="_Id_Condicion_Pago">
+    <argument id="242" parent="29" name="_Id_Condicion_Pago">
       <DataType>int(11)|0</DataType>
     </argument>
-    <argument id="184" parent="24" name="_Email">
+    <argument id="243" parent="29" name="_Email">
       <DataType>varchar(100)|0</DataType>
     </argument>
-    <argument id="185" parent="24" name="_Pagina_Web">
+    <argument id="244" parent="29" name="_Pagina_Web">
       <DataType>varchar(100)|0</DataType>
     </argument>
-    <argument id="186" parent="24" name="_Domicilio">
+    <argument id="245" parent="29" name="_Domicilio">
       <DataType>varchar(50)|0</DataType>
     </argument>
-    <argument id="187" parent="24" name="_Telefono">
+    <argument id="246" parent="29" name="_Telefono">
       <DataType>varchar(50)|0</DataType>
     </argument>
-    <argument id="188" parent="24" name="_Celular">
+    <argument id="247" parent="29" name="_Celular">
       <DataType>varchar(30)|0</DataType>
     </argument>
-    <argument id="189" parent="24" name="_Fax">
+    <argument id="248" parent="29" name="_Fax">
       <DataType>varchar(50)|0</DataType>
     </argument>
-    <argument id="190" parent="24" name="_Observaciones">
+    <argument id="249" parent="29" name="_Observaciones">
       <DataType>text|0</DataType>
     </argument>
-    <argument id="191" parent="24" name="_Barrio">
+    <argument id="250" parent="29" name="_Barrio">
       <DataType>varchar(50)|0</DataType>
     </argument>
-    <argument id="192" parent="24" name="_Id_Cat_Ganancia">
+    <argument id="251" parent="29" name="_Id_Cat_Ganancia">
       <DataType>int(11)|0</DataType>
     </argument>
-    <argument id="193" parent="24" name="_Localidad">
+    <argument id="252" parent="29" name="_Localidad">
       <DataType>varchar(100)|0</DataType>
     </argument>
-    <argument id="194" parent="25" name="_Name_User">
+    <argument id="253" parent="30" name="_Name_User">
       <DataType>varchar(10)|0</DataType>
     </argument>
-    <argument id="195" parent="25" name="_Pw_User">
+    <argument id="254" parent="30" name="_Pw_User">
       <DataType>varchar(300)|0</DataType>
     </argument>
   </database-model>

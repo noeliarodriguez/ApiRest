@@ -1,7 +1,17 @@
 // define application
 var apiURL = "http://localhost:8080/ApiRest/ci/";
-var app = angular.module("crudApp", ['ui.mask']);
-app.controller("provController", function($scope,$http){
+var app = angular.module("crudApp", ['ui.mask','serviceProvincias']);
+app.controller("provController", function($scope,$http,ProvinciasData){
+
+    getProvincias();
+
+    function getProvincias(){
+        ProvinciasData.getProvincias().then(function(provincias){
+            $scope.provincias = provincias;
+        }).catch(function(error){
+            $scope.status = "Error consultando datos: " + error.message;
+        })
+    }
     $scope.provs = [];
     $scope.tempProvData = {};
     $scope.provSelected = {};
@@ -74,14 +84,15 @@ app.controller("provController", function($scope,$http){
             $scope.barrios = response.data.resp;
         })
     };
-    $scope.getProvincias = function(){
+   /* $scope.getProvincias = function(){
         $http.get(apiURL+"provincia")
         .then(function(response){
             $scope.provincias = response.data.resp;
             $scope.getBarrios();
-        })
+        });
         $scope.provinciaSelected = null;
     };
+    */
     $scope.getRubros = function(){
         $http.get(apiURL+"rubro")
         .then(function(response){

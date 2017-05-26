@@ -1,35 +1,35 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 require APPPATH . '/libraries/REST_Controller.php';
-class Rubro extends REST_Controller {
+class Producto extends REST_Controller {
 
-	public function __construct()
-	{
-		parent::__construct();
-		$this->load->model('M_Rubro','Rubro');
-	}
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('M_Producto','Producto');
+    }
 
-	public function index_get($id = NULL)
-	{
-		$rubro = $this->Rubro->get($id);
-		if(!is_null($rubro))
-			$this->response(array("resp" => $rubro),200);
-		else
-			$this->response(array("resp" => "no hay datos"),404);	
-	}
+    public function index_get($id = NULL)
+    {
+        $producto = $this->Producto->get($id);
+        if(!is_null($producto))
+            $this->response(array("resp" => $producto),200);
+        else
+            $this->response(array("resp" => "no hay datos"),404);
+    }
 
     public function index_post()
     {
         $type = $this->post('type');
-        $rubro = $this->post('rubro');
+        $producto = $this->post('producto');
         //AGREGAR
         if( $type == "add")
         {
-            $rubroId = $this->Rubro->save($rubro);
-            if(!is_null($rubroId))
+            $productoId = $this->Producto->save($producto);
+            if(!is_null($productoId))
             {
-                $rubro["Id"] = $rubroId;
-                $this->response(array("resp" => "Nuevo Rubro codigo: ".$rubroId,"rubro" => $rubro,"status" => "OK"));
+                $producto["Id"] = $productoId;
+                $this->response(array("resp" => "Nuevo Producto codigo: ".$producto['Codigo'],"producto" => $producto,"status" => "OK"));
             }
             else
                 $this->response(array("resp" => "Ha ocurrido un error",400));
@@ -39,13 +39,13 @@ class Rubro extends REST_Controller {
         else
             if($type == "edit")
             {
-                $id = $this->post('rubro')['Id'];
-                if(!$rubro || !$id)
+                $id = $this->post('producto')['Id'];
+                if(!$producto || !$id)
                     $this->response(NULL,400);
 
-                $update = $this->Rubro->update($id,$rubro);
+                $update = $this->Producto->update($id,$producto);
                 if(!is_null($update))
-                    $this->response(array("resp" => "Rubro actualizado","status" => "OK"));
+                    $this->response(array("resp" => "Producto actualizado","status" => "OK"));
                 else
                     $this->response(array("resp" => "No se ha actualizado nada",400));
             }
@@ -67,5 +67,5 @@ class Rubro extends REST_Controller {
                     echo "ERROR";
 
     }
-
 }
+
