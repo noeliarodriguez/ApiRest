@@ -12,13 +12,14 @@ class M_Proveedor extends CI_Model {
 		$result = NULL;
 		if (!is_null($id))
 		{
-			$query = $this->db->select("*")->from("proveedor")->where("Id",$id)->get();
+		    $array = array('Id' => $id, 'Estado' => 'CAR');
+			$query = $this->db->select("*")->from("proveedor")->where($array)->get();
 			if($query->num_rows() === 1)
 				$result = $query->row_array();
 		}
 		else
 		{
-			$query = $this->db->select("*")->from("proveedor")->get();
+			$query = $this->db->select("*")->from("proveedor")->where('Estado','CAR')->get();
 			if($query->num_rows() >= 1)
 				$result = $query->result_array();
 		}
@@ -47,14 +48,24 @@ class M_Proveedor extends CI_Model {
 	{
 		if(!is_null($id))
 		{
+		    /*
 			$this->db->where("Id",$id)->delete("proveedor");
 			if($this->db->affected_rows() == 1)
 				return TRUE;
 			else
 				return NULL;
+		    */
+		    $this->db->set('Estado','BAJ')->where("Id",$id)->update("proveedor");
+            if($this->db->affected_rows() == 1)
+                return TRUE;
+            else
+                return NULL;
+
 		}
+		else
+		    return NULL;
 	}
-	private function _setProv($prov)
+	public function _setProv($prov)
 	{
 		if(!is_null($prov))
 		{
@@ -90,6 +101,8 @@ class M_Proveedor extends CI_Model {
 				$prov['Id_Rubro'] = 0;
 			if(!array_key_exists('Agente_Retencion', $prov))
 				$prov['Agente_Retencion'] = 0;
+            if(!array_key_exists('Estado', $prov))
+                $prov['Estado'] = "CAR";
 			
 			return array(
 			"Razon_Social" => $prov['Razon_Social'],
@@ -111,7 +124,8 @@ class M_Proveedor extends CI_Model {
 			"Id_Cat_Ing_Br" => $prov['Id_Cat_Ing_Br'],
 			"Id_Cat_Ganancia" => $prov['Id_Cat_Ganancia'],
 			"Id_Rubro" => $prov['Id_Rubro'],
-			"Agente_Retencion" => $prov['Agente_Retencion']
+			"Agente_Retencion" => $prov['Agente_Retencion'],
+            "Estado" => $prov['Estado']
 			);
 		}
 		else

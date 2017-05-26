@@ -12,10 +12,16 @@ app.controller("provController", function($scope,$http){
     var regexp = "[A-Z_a-z]";
     $scope.validarCuit = function(cuit){
         return regexp.test(cuit);
-    }
+    };
 
 
     // DATOS //_____________________________
+    $scope.getDatos = function(){
+        $scope.getProvincias();
+        $scope.getIvas();
+        $scope.getCatGanancias();
+        $scope.getRubros();
+    };
     $scope.checkearProvi = function(){
         $inputBarrio = document.getElementById('barrio');
         $inputCatIngBr = document.getElementById('cat_ing_br');
@@ -42,9 +48,9 @@ app.controller("provController", function($scope,$http){
             }
 
         $scope.getCatIngBr();
-    }
+    };
     $scope.checkearDatos = function(){
-    }
+    };
     $scope.getCatIngBr = function(){
         $http.get(apiURL+"Cat_Ing_Br",
                   {params:{
@@ -56,37 +62,40 @@ app.controller("provController", function($scope,$http){
         .then(function(response){
             $scope.catIngBr = response.data.resp;
         });
-    }
+    };
     $scope.getCatGanancias = function(){
         $http.get(apiURL+"Cat_Ganancias",$scope.config).then(function(response){
             $scope.catGanancias = response.data.resp;
         })
-    }
+    };
     $scope.getBarrios = function(){
         $http.get(apiURL+"barrio")
         .then(function(response){
             $scope.barrios = response.data.resp;
         })
-    }
+    };
     $scope.getProvincias = function(){
         $http.get(apiURL+"provincia")
         .then(function(response){
             $scope.provincias = response.data.resp;
+            $scope.getBarrios();
         })
         $scope.provinciaSelected = null;
-    }
+    };
     $scope.getRubros = function(){
         $http.get(apiURL+"rubro")
         .then(function(response){
             $scope.rubros = response.data.resp;
         })
-    }
+    };
     $scope.getIvas = function(){
         $http.get(apiURL+"iva")
         .then(function(response){
             $scope.ivas = response.data.resp;
         })
-    }
+    };
+
+
     //TRAE LISTADO DE PROVEEDORES
     $scope.getRecords = function(){
         $http.get(apiURL+"proveedor")
@@ -96,7 +105,7 @@ app.controller("provController", function($scope,$http){
         .catch(function(response){
             //console.log(response);
         });
-    }
+    };
 
     //____ ACCIONES ___ //
     $scope.saveProv = function(type,provForm){
@@ -223,7 +232,6 @@ app.controller("provController", function($scope,$http){
         
         $("#modalConfirma").modal('show');
     };
-    
 
     //__________________JQUERY
     var formUp = $('.formData');
@@ -231,25 +239,26 @@ app.controller("provController", function($scope,$http){
     var resetForm = $('#resetForm');
     var formulario = $scope.provForm;  
     $scope.messageSuccess = function(msg){
+        var alertSuccess = $('.alert-success');
         $('.alert-success > p').html(msg);
-        $('.alert-success').show();
-        $('.alert-success').delay(5000).slideUp(function(){
+        alertSuccess.show();
+        alertSuccess.delay(5000).slideUp(function(){
             $('.alert-success > p').html('');
         });
     };
-    
-    
+
     $scope.messageError = function(msg){
+        var alertDanger = $('.alert-danger');
         $('.alert-danger > p').html(msg);
-        $('.alert-danger').show();
-        $('.alert-danger').delay(5000).slideUp(function(){
+        alertDanger.show();
+        alertDanger.delay(5000).slideUp(function(){
             $('.alert-danger > p').html('');
         });
     };
 
     $scope.slideToggle = function(){
         formUp.slideToggle();
-    }
+    };
     $scope.resetForm = function(provForm){
         $('input').val('').removeAttr('checked').removeAttr('selected');
         $('#barrio').removeAttr('disabled');
@@ -257,7 +266,7 @@ app.controller("provController", function($scope,$http){
         $scope.tempProvData = {};
         provForm.$setPristine();
         provForm.$setUntouched();
-    }
+    };
     
 
       
@@ -273,8 +282,9 @@ app.controller("provController", function($scope,$http){
             
                 $("#modalConfirma").modal('hide');
 
-                var index = $scope.provs.indexOf($scope.provSelected);
-                $scope.provs.splice(index,1); //Borra del array
+                //var index = $scope.provs.indexOf($scope.provSelected);
+                //$scope.provs.splice(index,1); //Borra del array
+
                 $scope.messageSuccess(response.data.resp);
                 $scope.provSelected = {};
                 $scope.getRecords();

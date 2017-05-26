@@ -25,6 +25,7 @@ class Proveedor extends REST_Controller {
 			$provId = $this->Prov->save($prov);
 			if(!is_null($provId))
 				{
+					$prov = $this->Prov->_setProv($prov);
 					$prov["Id"] = $provId;
 					$this->response(array("resp" => "Nuevo proveedor codigo: ".$provId,"prov" => $prov,"status" => "OK"));
 				}
@@ -57,7 +58,7 @@ class Proveedor extends REST_Controller {
 
 					$delete = $this->Prov->delete($id);
 					if(!is_null($delete))
-						$this->response(array("resp" => "Proveedor eliminado","status" => "OK"));
+						$this->response(array("resp" => "Proveedor dado de Baja","status" => "OK"));
 					else
 						$this->response(array("resp" => "Ha ocurrido un error",400));
 				}

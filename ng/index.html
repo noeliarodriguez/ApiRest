@@ -19,7 +19,7 @@
   <div class="modal-dialog modal-sm" role="document">
     <div class="modal-content">
       <div class="modal-body">
-        <p class="text-center">Esta seguro?</p>
+        <p class="text-center">Dar de BAJA?</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
@@ -29,7 +29,7 @@
   </div>
 </div>
 
-<div class="container" ng-controller="provController" ng-init="getRecords()">
+<div class="container" ng-controller="provController" ng-init="getDatos()">
     <div class="row">
     	<div class="container">
         <div class="panel panel-default users-content">
@@ -79,7 +79,7 @@
                         <div class="item form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3 falso-xs-12" for="iva">IVA</label>
                             <div class="col-md-9 col-sm-9 col-xs-9 falso-xs-12">
-                               <select class="form-control" id="iva" name="Iva" ng-init="getIvas()" ng-model="tempProvData.Id_Iva">
+                               <select class="form-control" id="iva" name="Iva" ng-model="tempProvData.Id_Iva">
                                     <option ng-repeat="iva in ivas" value="{{iva.Id}}">{{iva.Descripcion}}</option>
                                 </select>
                             </div>
@@ -128,7 +128,7 @@
                         <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-3 falso-xs-12" for="rubro_prov">Rubro</label>
                             <div class="col-md-9 col-sm-9 col-xs-9 falso-xs-12">
-                                <select class="form-control" id="rubro_prov" name="rubro_prov" ng-init="getRubros()" ng-model="tempProvData.Id_Rubro">
+                                <select class="form-control" id="rubro_prov" name="rubro_prov"  ng-model="tempProvData.Id_Rubro">
                                     <option ng-repeat="rubro in rubros" value="{{rubro.Id}}">{{rubro.Descripcion}}</option>
                                 </select>
                             </div>                                
@@ -166,7 +166,7 @@
                         <div class="item form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3 falso-xs-12" for="provincia">Provincia</label>
                             <div class="col-md-9 col-sm-9 col-xs-9 falso-xs-12">
-                                <select class="select2_single form-control" id="provincia" name="provincia" ng-model="tempProvData.Id_Provincia" ng-init="getProvincias()" ng-change="checkearProvi()">
+                                <select class="select2_single form-control" id="provincia" name="provincia" ng-model="tempProvData.Id_Provincia"  ng-change="checkearProvi()">
                                     <option ng-repeat="provincia in provincias" value="{{provincia.Id}}">{{provincia.Descripcion}}</option>
                                 </select>
                             </div>
@@ -177,7 +177,7 @@
                                 <input id="localidad" class="form-control col-md-7 col-xs-12" type="text" name="Localidad" ng-model="tempProvData.Localidad">
                             </div>
                         </div>
-                        <div class="form-group"  ng-init="getBarrios()">
+                        <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3 falso-xs-12" for="barrio">Barrio</label>
                             <div class="col-md-4 col-sm-4 col-xs-9 falso-xs-12">
                                 <select class="select2_single form-control" tabindex="-1" id="barrio" name="barrio" ng-model="tempProvData.Barrio">
@@ -192,7 +192,7 @@
                             </div>
                         </div>
                         <div class="clearfix"></div>
-                         <div class="item form-group" ng-init="getCatIngBr()">
+                         <div class="item form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3 falso-xs-12" for="cat_ing_br">Categoria de Ing Brutos</label>
                             <div class="col-md-9 col-sm-9 col-xs-9 falso-xs-12">
                                 <select class="form-control" id="cat_ing_br" name="cat_ing_Br" ng-model="tempProvData.Id_Cat_Ing_Br" disabled="disabled">
@@ -201,7 +201,7 @@
                             </div>
                         </div>
                         <div class="clearfix"></div>
-                        <div class="item form-group" ng-init="getCatGanancias()">
+                        <div class="item form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3 falso-xs-12" for="cat_ing_br">Categoria de Ganancias</label>
                             <div class="col-md-9 col-sm-9 col-xs-9 falso-xs-12">
                                 <select class="form-control select2_single" id="cat_ganancias" name="cat_ganancias" ng-model="tempProvData.Id_Cat_Ganancia">
@@ -224,7 +224,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-3">
                                 <button  type="reset" class="btn btn-primary" ng-click="resetForm(provForm)">Cancelar</button>
-                                <button  type="submit" class="btn btn-success" ng-hide="tempProvData.Id" ng-click="addProv(provForm)">Agregar proveedor</button>
+                                <button  type="submit" class="btn btn-success" ng-hide="tempProvData.Id" ng-click="saveProv(provForm)">Agregar proveedor</button>
                                 <button  type="submit" class="btn btn-success" ng-hide="!tempProvData.Id" ng-click="updateProv(provForm)">Actualizar proveedor</button>
                             </div>
                         </div>
@@ -233,7 +233,7 @@
                 </form>
             </div>
            
-            <div class="panel">
+            <div class="panel" ng-init="getRecords()">
                 <div class="panel-body">
                     <table id="datatable-checkbox" class="table table-striped  bulk_action  dt-responsive nowrap" cellspacing="0" width="100%">
                         <thead>
