@@ -1,17 +1,8 @@
 // define application
 var apiURL = "http://localhost:8080/ApiRest/ci/";
-var app = angular.module("crudApp", ['ui.mask','serviceProvincias']);
-app.controller("provController", function($scope,$http,ProvinciasData){
+var app = angular.module("crudApp", ["ui.mask"]);
+app.controller("provController", function($scope,$http){
 
-    getProvincias();
-
-    function getProvincias(){
-        ProvinciasData.getProvincias().then(function(provincias){
-            $scope.provincias = provincias;
-        }).catch(function(error){
-            $scope.status = "Error consultando datos: " + error.message;
-        })
-    }
     $scope.provs = [];
     $scope.tempProvData = {};
     $scope.provSelected = {};
@@ -42,9 +33,9 @@ app.controller("provController", function($scope,$http,ProvinciasData){
                 $inputBarrio.setAttribute('disabled','disabled');
                 $scope.esProvincia = true;
                 $inputCatIngBr.removeAttribute('disabled','disabled');
-                $inputLocalidad.removeAttribute('disabled','disabled');
-                if($inputLocalidad.value == "CABA")
-                    $inputLocalidad.value = "";
+                $inputLocalidad.removeAttribute('readonly','readonly');
+                if($scope.tempProvData.Localidad == "CABA")
+                    $scope.tempProvData.Localidad = "";
 
             }
         else
@@ -52,8 +43,8 @@ app.controller("provController", function($scope,$http,ProvinciasData){
                 $inputBarrio.removeAttribute('disabled','disabled');
                 $scope.esProvincia = false;
                 $inputCatIngBr.removeAttribute('disabled','disabled');
-                $inputLocalidad.value = "CABA";
-                $inputLocalidad.setAttribute('disabled','disabled');
+                $scope.tempProvData.Localidad = "CABA";
+                $inputLocalidad.setAttribute('readonly','readonly');
 
             }
 
@@ -84,7 +75,7 @@ app.controller("provController", function($scope,$http,ProvinciasData){
             $scope.barrios = response.data.resp;
         })
     };
-   /* $scope.getProvincias = function(){
+    $scope.getProvincias = function(){
         $http.get(apiURL+"provincia")
         .then(function(response){
             $scope.provincias = response.data.resp;
@@ -92,7 +83,6 @@ app.controller("provController", function($scope,$http,ProvinciasData){
         });
         $scope.provinciaSelected = null;
     };
-    */
     $scope.getRubros = function(){
         $http.get(apiURL+"rubro")
         .then(function(response){
@@ -122,10 +112,12 @@ app.controller("provController", function($scope,$http,ProvinciasData){
     $scope.saveProv = function(type,provForm){
         if(provForm.Razon_Social.$valid && provForm.Cuit.$valid && provForm.Email.$valid)
         {
+
             var proveedor = $.param({
                 'proveedor':$scope.tempProvData,
                 'type':type
             });
+            console.log($scope.tempProvData.Localidad);
             $http.post(apiURL+"proveedor", proveedor, $scope.config)
                 .then(function(response){
                         if(type == 'edit'){
@@ -152,6 +144,9 @@ app.controller("provController", function($scope,$http,ProvinciasData){
                             $scope.provs[$scope.index].Id_Cat_Ganancia = $scope.tempProvData.Id_Cat_Ganancia;
 
                         }else{
+                            if($scope.provs == undefined)
+                                $scope.provs = [];
+
                             $scope.provs.push({
                                 Id:response.data.resp.Id,
                                 Razon_Social:response.data.resp.Razon_Social,
@@ -187,7 +182,6 @@ app.controller("provController", function($scope,$http,ProvinciasData){
                         else
                             {
                                 $scope.messageError(response.data.resp);
-                                console.log(response.data);
                             }
                                     
                         $scope.getRecords();
@@ -290,12 +284,10 @@ app.controller("provController", function($scope,$http,ProvinciasData){
 
         $http.post(apiURL+"proveedor",proveedor,$scope.config)
             .then(function(response){
-            
                 $("#modalConfirma").modal('hide');
-
-                //var index = $scope.provs.indexOf($scope.provSelected);
-                //$scope.provs.splice(index,1); //Borra del array
-
+                console.log(response.data.resp);
+                var index = $scope.provs.indexOf($scope.provSelected);
+                $scope.provs.splice(index,1); //Borra del array
                 $scope.messageSuccess(response.data.resp);
                 $scope.provSelected = {};
                 $scope.getRecords();

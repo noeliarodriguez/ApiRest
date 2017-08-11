@@ -10,6 +10,7 @@
 <script src = "js/custom.min.js"></script>
 <script src = "js/icheck.min.js"></script>
 <script type="text/javascript" src="bower_components/angular-ui-mask/dist/mask.js"></script>
+<script src="services/serviceProvincias.js"></script>
 <script src = "app.js"></script>
 
 </head>
@@ -32,7 +33,7 @@
 <div class="container" ng-controller="provController" ng-init="getDatos()">
     <div class="row">
     	<div class="container">
-        <div class="panel panel-default users-content">
+        <div class="panel panel-default">
             <div class="panel-heading">Proveedores <a href="" class="glyphicon glyphicon-plus"  ng-click="slideToggle()"></a>
             <!--
             <div class="clearfix"></div>
@@ -58,7 +59,7 @@
                         <div class="item form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3 falso-xs-12" for="CodProv">Codigo</label>
                             <div class="col-md-9 col-sm-9 col-xs-9 falso-xs-12">
-                                <input type="text" id="CodProv" name="Codigo_Prov" disabled="disabled" ng-model="tempProvData.Id" class="form-control col-md-7 col-xs-12">
+                                <input type="text" id="CodProv" name="Codigo_Prov" readonly ng-model="tempProvData.Id" class="form-control col-md-7 col-xs-12">
                             </div>
                         </div>
                         <div class="item form-group">
@@ -195,7 +196,7 @@
                          <div class="item form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3 falso-xs-12" for="cat_ing_br">Categoria de Ing Brutos</label>
                             <div class="col-md-9 col-sm-9 col-xs-9 falso-xs-12">
-                                <select class="form-control" id="cat_ing_br" name="cat_ing_Br" ng-model="tempProvData.Id_Cat_Ing_Br" disabled="disabled">
+                                <select class="form-control" id="cat_ing_br" name="cat_ing_Br" ng-model="tempProvData.Id_Cat_Ing_Br" readonly>
                                     <option ng-repeat="cat in catIngBr" value="{{cat.Id}}">{{cat.Descripcion}}</option>
                                 </select>
                             </div>
